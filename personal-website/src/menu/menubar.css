@@ -1,0 +1,18 @@
+.menu-bar {
+    position: absolute; 
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+  }
+  
+  .menu-bar ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Arrange items horizontally */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: flex-end; /* Align to the right */
+  }
+  
+  .menu-bar li {
+    margin-bottom: 5px; /* Add spacing between items */
+  }
+  

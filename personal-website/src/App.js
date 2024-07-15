@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
-
-function App() {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faInfoCircle, faBlog, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import Home from './Home';
+import About from './About';
+import Blog from './Blog';
+import Contact from './Contact';
+import IconComponent from './menu/IconComponent';
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="icon-container">
+      <IconComponent iconClass="fas fa-home" label="HOME" >
+      </IconComponent>
+      <IconComponent iconClass="fas fa-user" label="ABOUT" >
+      </IconComponent>
+      <IconComponent iconClass="fas fa-briefcase" label="PORTFOLIO"></IconComponent>
+      <IconComponent iconClass="fas fa-envelope" label="Contact" >
+
+      </IconComponent>
+      <IconComponent iconClass="fas fa-pencil" label="BLOG" >
+      </IconComponent>
+      </div>
   );
 }
 

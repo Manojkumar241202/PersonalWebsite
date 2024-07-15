@@ -1,0 +1,21 @@
+.home-button {
+    background-color: #ffc107; /* Orange */
+    color: white;
+    border: none;
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition */
+    display: flex;
+    align-items: center;
+    width: 10%;
+    height: 10%;
+  }
+  
+  
+  /* Hovered Button Style */
+  .home-button.hovered {
+    background-color: #e0a800; /* Darker orange on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* More prominent shadow */
+  }
+  

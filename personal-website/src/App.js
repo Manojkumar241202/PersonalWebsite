@@ -1,27 +1,34 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faInfoCircle, faBlog, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import Home from './Home';
-import About from './About';
-import Blog from './Blog';
-import Contact from './Contact';
-import IconComponent from './menu/IconComponent';
+import Home from './pages/Home';
+import About from './pages/About';
+import Blog from './pages/Blog';
+import Contact from './pages/Contact';
+import Portfolio from './pages/Portfolio';
+import Error404 from './pages/Error';
+import MenuBar from './menu/MenuBar';
 const App = () => {
   return (
-    <div className="icon-container">
-      <IconComponent iconClass="fas fa-home" label="HOME" >
-      </IconComponent>
-      <IconComponent iconClass="fas fa-user" label="ABOUT" >
-      </IconComponent>
-      <IconComponent iconClass="fas fa-briefcase" label="PORTFOLIO"></IconComponent>
-      <IconComponent iconClass="fas fa-envelope" label="Contact" >
+    <BrowserRouter>
+    <MenuBar></MenuBar>
 
-      </IconComponent>
-      <IconComponent iconClass="fas fa-pencil" label="BLOG" >
-      </IconComponent>
-      </div>
+    <Routes>
+      <Route path="/"></Route>
+      <Route path="/home" element= {<Home></Home>}></Route>
+      <Route path="/about" element= {<About></About>}></Route>
+      <Route path="/portfolio" element= {<Portfolio/>}></Route>
+      <Route path="/contact" element= {<Contact/>}></Route>
+      <Route path="/blog" element= {<Blog/>}></Route>
+      <Route path="*" element= {<Error404/>}></Route>
+
+
+    </Routes>
+    
+    </BrowserRouter>
+    
   );
 }
 

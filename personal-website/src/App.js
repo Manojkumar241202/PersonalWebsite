@@ -1,8 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, BrowserRouter } from 'react-router-dom';
+import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom';
 import './App.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faInfoCircle, faBlog, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import Home from './pages/Home';
 import About from './pages/About';
 import Blog from './pages/Blog';
@@ -16,12 +14,12 @@ const App = () => {
     <MenuBar></MenuBar>
 
     <Routes>
-      <Route path="/"></Route>
       <Route path="/home" element= {<Home></Home>}></Route>
-      <Route path="/about" element= {<About></About>}></Route>
+      <Route path="/about-me" element= {<About></About>}></Route>
       <Route path="/portfolio" element= {<Portfolio/>}></Route>
       <Route path="/contact" element= {<Contact/>}></Route>
       <Route path="/blog" element= {<Blog/>}></Route>
+      <Route path="/" element={<Navigate to="/home" />} />
       <Route path="*" element= {<Error404/>}></Route>
 
 

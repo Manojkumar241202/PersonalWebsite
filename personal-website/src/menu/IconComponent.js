@@ -1,8 +1,8 @@
 // IconWrapper.jsx
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import './iconcomponent.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
-const IconComponent = ({ iconClass, label }) => {
+const IconComponent = ({ iconClass, label, isActive }) => {
   const [paddingLeft, setPaddingLeft] = useState(0);
   const spanRef = useRef(null);
 
@@ -14,6 +14,7 @@ const IconComponent = ({ iconClass, label }) => {
   // }, [label]);
 
   const handleMouseOver = () => {
+    //spanRef.current.offsetWidth -> gives pixel. so converting it to rem
     setPaddingLeft(`${spanRef.current.offsetWidth/parseFloat(getComputedStyle(document.documentElement).fontSize)+ 1.5625}rem`);
   };
 
@@ -22,15 +23,15 @@ const IconComponent = ({ iconClass, label }) => {
   };
 
   return (
+    
     <div 
-      className="icon-wrapper icon-wrapper1" 
-      style={{ paddingLeft }} 
+      className={"icon-wrapper"}
+      style={isActive ? { paddingLeft: paddingLeft, backgroundColor: '#ffb400', color: 'white' } : { paddingLeft: paddingLeft }}
       onMouseOver={handleMouseOver} 
       onMouseOut={handleMouseOut}
       data-label= {label}
     >
       <i className={iconClass}></i>
-      {console.log(iconClass)}
       <span ref={spanRef} style={{ position: 'absolute', visibility: 'hidden', fontSize: '16px' }}>
         {label}
       </span>

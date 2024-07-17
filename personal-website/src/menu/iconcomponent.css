@@ -14,11 +14,15 @@
     margin-bottom: 1.25rem; /* Adds distance between icons */
   }
   
-  .icon-wrapper1:hover {
+  /* .icon-wrapper{
+    border-color: red;
+    border-style: dotted;
+  } */
+  .icon-wrapper:hover {
     border-radius: 1.5625rem;
   }
   
-  .icon-wrapper1::before {
+  .icon-wrapper::before {
     content: attr(data-label);
     position: absolute;
     right: 3.75rem; /* Adjusted to appear to the left of the circle */
@@ -27,7 +31,7 @@
   }
   
   
-  .icon-wrapper1:hover {
+  .icon-wrapper:hover{
     color: white; /* Change icon color to white on hover */
     background-color: #ffb400;
   }

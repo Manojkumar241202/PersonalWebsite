@@ -1,5 +1,5 @@
 // IconWrapper.jsx
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import './iconcomponent.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 const IconComponent = ({ iconClass, label, isActive }) => {
@@ -14,6 +14,7 @@ const IconComponent = ({ iconClass, label, isActive }) => {
   // }, [label]);
 
   const handleMouseOver = () => {
+    //spanRef.current.offsetWidth -> gives pixel. so converting it to rem
     setPaddingLeft(`${spanRef.current.offsetWidth/parseFloat(getComputedStyle(document.documentElement).fontSize)+ 1.5625}rem`);
   };
 

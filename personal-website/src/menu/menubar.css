@@ -7,4 +7,5 @@
   right: 0.625rem;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 100;
 }

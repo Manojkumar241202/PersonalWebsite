@@ -5,8 +5,8 @@
     width: 3.125rem;
     height: 3.125rem;
     border-radius: 50%;
+    color: #666;
     background-color: #EEEEEE;
-    color: #666; /* Initial icon color */
     font-size: 1.5rem;
     transition: 0.2s;
     cursor: pointer;
@@ -25,14 +25,20 @@
   .icon-wrapper::before {
     content: attr(data-label);
     position: absolute;
+    display: none;
     right: 3.75rem; /* Adjusted to appear to the left of the circle */
     color: white;
     font-size: 1rem;
   }
   
+ 
   
-  .icon-wrapper:hover{
+  .icon-wrapper:hover {
     color: white; /* Change icon color to white on hover */
-    background-color: #ffb400;
+    background-color: var(--common-primary-color);
+    z-index: 101;
+  }
+  .icon-wrapper:hover::before {
+    display: inline-block;
   }
   

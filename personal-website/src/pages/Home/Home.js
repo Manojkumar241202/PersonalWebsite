@@ -1,9 +1,9 @@
 import React from 'react';
 import "./Home.css";
-import "./MoreAboutMe.css";
 import nobg_profile from "./nobg_profile-modified.png"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { NavLink } from 'react-router-dom';
+import SwipeButton from '../../utils/SwipeButton';
 const Home = () => {
 
   return (
@@ -22,14 +22,9 @@ const Home = () => {
           <div className='description'>
             <p>A software engineer is a professional who applies principles of computer science, engineering, and mathematics to Their role is critical in the ever-evolving digital landscape, driving innovation and technological advancement.</p>
           </div>
-          <div className='temp'>
-            <NavLink to="/about-me" style={{ textDecoration: 'none' }}>
-              <div className='about-me'>
-                MORE ABOUT ME
-                <i className='fas fa-arrow-right'></i>
-              </div>
+            <NavLink to="/about-me" style={{ textDecoration: 'none',  display: 'flex' }}>
+              <SwipeButton button_text="MORE ABOUT ME" icon='fas fa-arrow-right'/>
             </NavLink>
-          </div>
         </div>
       </div>
     </div>

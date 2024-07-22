@@ -1,5 +1,6 @@
-  .about-me {
+.arrowSwipeButton {
     display: flex;
+    width:auto;
     align-items: center;
     align-content: center;
     border: 0.0625rem solid var(--common-primary-color);
@@ -10,15 +11,12 @@
     cursor: pointer;
     position: relative;
     margin-bottom: 1.25rem;
-    padding-left: 0.625rem;
+    padding-left: 1.3125rem;
     font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Poppins', Times, serif;
     overflow: hidden;
   }
-  .temp{
-    display: flex;
-  }
-  .about-me i{
+  .arrowSwipeButton i{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,12 +27,12 @@
     background-color: var(--common-primary-color);
     margin-left: 0.9375rem;
   }
-  .about-me:hover::before, .about-me:hover{
+  .arrowSwipeButton:hover::before, .arrowSwipeButton:hover{
     color: white;
     left: 0%;
   }
   
-  .about-me::before {
+  .arrowSwipeButton::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -46,9 +44,3 @@
   }
   
  
-  
-  .about-me:hover {
-    
-    z-index: 101;
-  }
-  

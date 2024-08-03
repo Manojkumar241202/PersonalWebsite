@@ -1,0 +1,36 @@
+.section-title {
+    font-family: "Poppins", sans-serif;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+.title, .subtitle{
+  top: 0px;
+  position: absolute;
+}
+.title {
+    top: 50%;
+    font-size: 56px;
+    font-weight: 900;
+    transform: translateY(-50%);
+    z-index: 1;
+    color: #666;
+}
+.title span{
+  color: #ffb400 ;
+}
+.subtitle {
+    top: 50%;
+    position: absolute;
+    letter-spacing: 10px;
+    font-size: 110px;
+    font-weight: 700 ;
+    transform: translateY(-50%);
+    z-index: 0;
+    color: rgba(30, 37, 48, 0.07);
+}

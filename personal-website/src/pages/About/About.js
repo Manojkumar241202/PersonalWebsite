@@ -28,7 +28,26 @@ const About = () => {
           </div>
         </div>
         <div className="ratings">
-          <h2>Ratings</h2>
+          <ul>
+            <li>
+              <h3>1400</h3>
+              <span>+</span>
+              <p>RATING IN<br/>CODEFORCES</p>
+            </li>
+            <li>
+              <h3>1800</h3>
+              <span>+</span>
+              <p>RATING IN <br/>CODECHEF</p></li>
+            <li>
+              <h3>1900</h3>
+              <span>+</span>
+              <p>RATING IN <br/>LEETCODE</p></li>
+            <li>
+              <h3>800</h3>
+              <span>+</span>
+              <p>RATING IN <br/>ATCODER</p>
+            </li>
+          </ul>
         </div>
       </div>
       

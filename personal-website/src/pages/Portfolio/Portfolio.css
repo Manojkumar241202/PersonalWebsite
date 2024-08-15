@@ -1,0 +1,128 @@
+.portfolio{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.records {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto;
+  gap: 10px; 
+}
+
+.direction-aware-hover {
+  background: #DDD;
+  display: inline-block;
+  height: 150px;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  width: 150px;
+}
+
+.direction-aware-hover > * {
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.direction-aware-hover__left {
+  left: -70.75%;
+  right: 70.75%;
+}
+
+.direction-aware-hover__right {
+  left: 70.75%;
+  right: -70.75%;
+}
+
+.direction-aware-hover__top {
+  bottom: 70.75%;
+  top: -70.75%;
+}
+
+.direction-aware-hover__bottom {
+  bottom: -70.75%;
+  top: 70.75%;
+}
+
+.direction-aware-hover__content {
+  background: #369;
+  bottom: none;
+  color: #EEE;
+  height: 100%;
+  opacity: 0;
+  right: none;
+  transform: none;
+  transition: opacity .25s,
+    left .25s ease-in-out,
+    top .25s ease-in-out,
+    z-index 0s linear .25s;
+  width: 100%;
+  z-index: -1;
+}
+
+.direction-aware-hover__content:after {
+  bottom: -100%;
+  content: '';
+  left: -100%;
+  position: absolute;
+  right: -100%;
+  top: -100%;
+  z-index: -1;
+}
+
+*:hover ~ .direction-aware-hover__content {
+  transition: opacity 0s,
+    left 0s ease-in-out,
+    top 0s ease-in-out,
+    z-index 0s linear 0s;
+  z-index: 1;
+}
+
+.direction-aware-hover__left:hover ~ .direction-aware-hover__content {
+  left: -100%;
+}
+
+.direction-aware-hover__right:hover ~ .direction-aware-hover__content {
+  left: 100%;
+}
+
+.direction-aware-hover__top:hover ~ .direction-aware-hover__content {
+  top: -100%;
+}
+
+.direction-aware-hover__bottom:hover ~ .direction-aware-hover__content {
+  top: 100%;
+}
+
+
+.direction-aware-hover__content:hover {
+  left: 0;
+  opacity: 1;
+  top: 0;
+  transition: opacity 0.25s,
+    left .2s ease-in-out,
+    top .2s ease-in-out,
+    z-index 0s linear 0s;
+  z-index: 1;
+}
+
+.direction-aware-hover__content > p{
+  display: none;
+}
+.direction-aware-hover__content:hover > p{
+    position: absolute;
+    display: inline;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}

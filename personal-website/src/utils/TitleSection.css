@@ -1,6 +1,6 @@
 .section-title {
     font-family: "Poppins", sans-serif;
-    padding-top: 10%;
+    padding-top: 8%;
     padding-bottom: 10%;
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@
 .title {
     top: 50%;
     font-size: 56px;
-    font-weight: 900;
+    font-weight: 700;
     transform: translateY(-50%);
     z-index: 1;
     color: #666;

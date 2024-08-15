@@ -1,0 +1,76 @@
+.about-page{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    align-items: center;
+}
+
+/* .infos > div {
+    border: 2px solid #000;
+} */
+.infos{
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  font-family: "Poppins", sans-serif;
+  color: #666;
+  /* align-items: center; */
+}
+.infos{
+  border-style: dotted;
+}
+.personal_infos h2{
+  font-size: 26px;
+  font-weight: 700;
+}
+.personal_infos span{
+  color: #666;
+  font-weight: 600;
+  opacity: 1;
+}
+.personal_infos, .ratings{
+    padding-top: 0px;
+    flex: 1 1 48%; /* Each inner container takes up 48% of the flex container's width */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    /* background-color: #f0f0f0; */
+    /* border: 2px solid #000;  */
+}
+.personal_infos ul{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+    gap: 5px; /* Space between grid items */
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    font-weight: 600;
+  }
+
+
+.personal_infos li {
+    padding: 10px;
+    padding-top: 0px;
+    color: rgba(102, 102, 102, 0.8); 
+  }
+
+  .personal_infos .download_button{
+    display: flex;
+    padding-top: 10px;
+  }
+  
+  .personal_infos a{
+    text-decoration: none;
+  }
+  @media (max-width: 600px) {
+    .infos {
+      flex-direction: column; /* Stack the containers vertically on small screens */
+    }
+  
+    .personal_infos, .ratings {
+      flex: 1 1 100%; /* Each container takes up 100% of the width on small screens */
+    }
+  
+    .personal_infos ul {
+      grid-template-columns: 1fr; /* Single column layout on small screens */
+    }
+  }
+  

@@ -5,7 +5,7 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
-import Portfolio from './pages/Portfolio';
+import Portfolio from './pages/Portfolio/Portfolio';
 import Error404 from './pages/Error';
 import MenuBar from './menu/MenuBar';
 const App = () => {

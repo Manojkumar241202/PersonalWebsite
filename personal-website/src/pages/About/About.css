@@ -6,7 +6,7 @@
 }
 
 /* .infos > div {
-    border: 2px solid #000;
+    border: 0.125rem solid #000;
 } */
 .infos{
   display: flex;
@@ -16,11 +16,8 @@
   color: #666;
   /* align-items: center; */
 }
-.infos{
-  border-style: dotted;
-}
 .personal_infos h2{
-  font-size: 26px;
+  font-size: 1.625rem;
   font-weight: 700;
 }
 .personal_infos span{
@@ -29,38 +26,77 @@
   opacity: 1;
 }
 .personal_infos, .ratings{
-    padding-top: 0px;
+    padding-top: 0rem;
     flex: 1 1 48%; /* Each inner container takes up 48% of the flex container's width */
     box-sizing: border-box; /* Include padding and border in element's total width and height */
     /* background-color: #f0f0f0; */
-    /* border: 2px solid #000;  */
+    /* border: 0.125rem solid #000;  */
 }
 .personal_infos ul{
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns layout */
-    gap: 5px; /* Space between grid items */
+    gap: 0.3125rem; /* Space between grid items */
     list-style-type: none; /* Remove default list styles */
     padding: 0; /* Remove default padding */
     margin: 0; /* Remove default margin */
     font-weight: 600;
   }
+.ratings ul{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.625rem;
+  list-style-type: none;
+}
+.ratings h3{
+  font-size: 2.5rem;
+  padding: 0%;
+  margin: 0%;
+  display: inline-block;
+  position: relative;
 
-
+  color: var(--common-primary-color);
+}
+.ratings span {
+  content: '+';
+  right: -1.5rem;
+  color: var(--common-primary-color);
+  font-size: 2.0625rem;
+  font-weight: 300;
+  top: 0.125rem;
+}
+.ratings li{
+  border: 0.0625rem solid #ddd;
+  padding-left: 1.25rem;
+  
+}
+.ratings p::before{
+  content: "";
+  display: inline-block;
+  width: 1.25rem;   /* Adjust the width to your desired dash length */
+  height: 0.125rem;   /* Adjust the height to your desired dash thickness */
+  background-color: #666; /* Set the color of the dash */
+  margin-right: 0.3125rem;
+  vertical-align: middle; /* Align the dash with the text */
+}
+.ratings p{
+  padding-left: 1.5625rem;
+  text-indent: -1.5625rem;
+}
 .personal_infos li {
-    padding: 10px;
-    padding-top: 0px;
+    padding: 0.625rem;
+    padding-top: 0rem;
     color: rgba(102, 102, 102, 0.8); 
   }
 
   .personal_infos .download_button{
     display: flex;
-    padding-top: 10px;
+    padding-top: 0.625rem;
   }
   
   .personal_infos a{
     text-decoration: none;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 37.5rem) {
     .infos {
       flex-direction: column; /* Stack the containers vertically on small screens */
     }

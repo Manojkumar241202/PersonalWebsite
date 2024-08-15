@@ -9,7 +9,7 @@ const location = useLocation();
   return (
     <div className="icon-container">
       <NavLink to="/home" style={{ textDecoration: 'none' }}>
-        <IconComponent iconClass="fas fa-home" label="HOME" isActive={isActiveRoute('/home')}></IconComponent>
+        <IconComponent iconClass="fa fa-home" label="HOME" isActive={isActiveRoute('/home')}></IconComponent>
       </NavLink>
       <NavLink to="/about-me" style={{ textDecoration: 'none' }}>
         <IconComponent iconClass="fas fa-user" label="ABOUT" isActive={isActiveRoute('/about-me')}></IconComponent>

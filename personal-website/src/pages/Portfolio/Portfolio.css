@@ -8,17 +8,17 @@
   display: grid;
   grid-template-columns: auto auto auto;
   grid-template-columns: auto auto auto;
-  gap: 10px; 
+  gap: 0.625rem; 
 }
 
 .direction-aware-hover {
   background: #DDD;
   display: inline-block;
-  height: 150px;
+  height: 9.375rem;
   margin: 0;
   overflow: hidden;
   position: relative;
-  width: 150px;
+  width: 9.375rem;
 }
 
 .direction-aware-hover > * {

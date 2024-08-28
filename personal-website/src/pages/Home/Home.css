@@ -46,20 +46,21 @@
     
 }
 
-.dash{
+.name::before{
     display: inline-block;
     content: "";
     height: 0.25rem;
     width: 2.0625rem;
     background-color: var(--common-primary-color);
-    margin-top: 1.25rem;
-    margin-right: 0.5rem;
-
+    vertical-align: middle;
+    margin-right: 0.3125rem;
+    transform: translateY(-50%);
   }
 .name span{
   display: block;
   color: #666;
   margin-top: 1.25rem;
+  margin-left: 2.375rem;
 }
 .name{
     display: block;

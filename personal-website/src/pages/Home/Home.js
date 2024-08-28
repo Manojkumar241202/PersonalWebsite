@@ -14,7 +14,6 @@ const Home = () => {
         <div className='profile' style= {{ backgroundImage: `url(${nobg_profile})`}}></div>
         <div className='home-details'>
           <div className='intro'>
-            <div className='dash'></div>
             <h1 className='name'>I'M MANOJKUMAR.
               <span>SOFTWARE ENGINEER</span>
             </h1>

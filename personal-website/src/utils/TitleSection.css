@@ -10,12 +10,12 @@
     position: relative;
 }
 .title, .subtitle{
-  top: 0px;
+  top: 0rem;
   position: absolute;
 }
 .title {
     top: 50%;
-    font-size: 56px;
+    font-size: 3.5rem;
     font-weight: 700;
     transform: translateY(-50%);
     z-index: 1;
@@ -27,8 +27,8 @@
 .subtitle {
     top: 50%;
     position: absolute;
-    letter-spacing: 10px;
-    font-size: 110px;
+    letter-spacing: 0.625rem;
+    font-size: 6.875rem;
     font-weight: 700 ;
     transform: translateY(-50%);
     z-index: 0;

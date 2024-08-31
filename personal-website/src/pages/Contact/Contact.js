@@ -70,75 +70,75 @@ const Contact= () =>{
       }));
   };
     return (
-        <div className="contact-page">
-            <SectionTitle background_text="CONTACT" grey_text="GET  IN " yellow_text=" TOUCH " />
-            <div className="contact_page">
-        <div className="details">
-          <h2>DON'T BE SHY!</h2>
-          <p className="friendly_text">Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
-          <div className="mail">
-            <div className="mail_icon">
-              <i className="fas fa-envelope-open"></i>
-            </div>
-            <div className="mail_me">
-              Mail Me
-              <p className="anchor">manojkumar.p24cse@gmail.com</p>
-            </div>
-          </div>
-          
-          <div className="phone">
-            <div className="phone_icon">
-              <i className="fas fas fa-phone-square"></i>
-            </div>
-            <div className="call_me">
-              Call Me
-              <p className="anchor">+91 63625 00396</p>
-            </div>
-          </div> 
-          
-        
-        
-        </div>
-        
-                 <form className="contact-form">
-                    <div className="form-row">
-                    <div className="input-row">
-                    <input type="text" value={formValues.name} name="name" placeholder="Your name" onChange={handleChange}  className={`form-control ${formErrors.name ? 'error' : ''}`} />
-                {formErrors.name && <div className="error-message">Please enter your name.</div>}
-                </div>
-                <div className="input-row">
-                <input type="email" value={formValues.email} placeholder="Your email" name="email" onChange={handleChange}  className={`form-control ${formErrors.email ? 'error' : ''}`} />
-                {formErrors.email && <div className="error-message">Please enter a valid email.</div>}
-                </div>
-                <div className="input-row">
-                <input type="text" value={formValues.subject} placeholder="Your subject" name="subject"onChange={handleChange}  className={`form-control ${formErrors.subject ? 'error' : ''}`} />
-                {formErrors.subject && <div className="error-message">Please enter the subject.</div>}
-                </div>
-            </div>
-            
-            <div className="input-row">
-              <textarea placeholder="Your Message" value={formValues.message} name="message" onChange={handleChange}  className={`form-control message ${formErrors.message ? 'error' : ''}`} rows="6" cols="50" ></textarea>
-              {formErrors.message && <div className="error-message">Please enter a message.</div>}
-            </div>
-            
-                    <div className="send_me_button" type="submit" onClick={handleSubmit} >
-                        <SwipeButton button_text="SEND MESSAGE" icon="fas fa-paper-plane" ></SwipeButton>
-                    </div>
-                    </form>
-                    <div className={`${isVisible ? 'popup--visible' : 'popup'} popup--icon -success js_success-popup`}>
-                      <div className="popup__background"></div>
-                      <div className={`popup__content `}>
-                        <h3 className="popup__content__title">
-                          Successfully Message Sent
-                        </h3>
-                        <p>We'll get back to you</p>
-                        <p>
-                          <button className="button button--success" onClick={togglePopup}  data-for="js_success-popup">Ok</button>
-                        </p>
+      <div className="contact-page">
+          <SectionTitle background_text="CONTACT" grey_text="GET  IN " yellow_text=" TOUCH " />
+          <div className="contact_page">
+              <div className="details">
+                  <h2>DON'T BE SHY!</h2>
+                  <p className="friendly_text">Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+                  <div className="mail">
+                      <div className="mail_icon">
+                          <i className="fas fa-envelope-open"></i>
                       </div>
-                    </div>
-                  
-        </div>
+                      <div className="mail_me">
+                          Mail Me
+                          <p className="anchor">manojkumar.p24cse@gmail.com</p>
+                      </div>
+                  </div>
+                  <div className="phone">
+                      <div className="phone_icon">
+                          <i className="fas fas fa-phone-square"></i>
+                      </div>
+                      <div className="call_me">
+                          Call Me
+                          <p className="anchor">+91 63625 00396</p>
+                      </div>
+                  </div>
+              </div>
+              <form className="contact-form">
+                  <div className="form-row">
+                      <div className="input-row">
+                          <input type="text" value={formValues.name} name="name" placeholder="Your name" onChange={handleChange}  className={`form-control ${formErrors.name ? 'error' : ''}`} />
+                          {formErrors.name && 
+                          <div className="error-message">Please enter your name.</div>
+                          }
+                      </div>
+                      <div className="input-row">
+                          <input type="email" value={formValues.email} placeholder="Your email" name="email" onChange={handleChange}  className={`form-control ${formErrors.email ? 'error' : ''}`} />
+                          {formErrors.email && 
+                          <div className="error-message">Please enter a valid email.</div>
+                          }
+                      </div>
+                      <div className="input-row">
+                          <input type="text" value={formValues.subject} placeholder="Your subject" name="subject"onChange={handleChange}  className={`form-control ${formErrors.subject ? 'error' : ''}`} />
+                          {formErrors.subject && 
+                          <div className="error-message">Please enter the subject.</div>
+                          }
+                      </div>
+                  </div>
+                  <div className="input-row">
+                      <textarea placeholder="Your Message" value={formValues.message} name="message" onChange={handleChange}  className={`form-control message ${formErrors.message ? 'error' : ''}`} rows="6" cols="50" ></textarea>
+                      {formErrors.message && 
+                      <div className="error-message">Please enter a message.</div>
+                      }
+                  </div>
+                  <div className="send_me_button" type="submit" onClick={handleSubmit} >
+                      <SwipeButton button_text="SEND MESSAGE" icon="fas fa-paper-plane" ></SwipeButton>
+                  </div>
+              </form>
+              <div className={`${isVisible ? 'popup--visible' : 'popup'} popup--icon -success js_success-popup`}>
+              <div className="popup__background"></div>
+              <div className={`popup__content `}>
+                  <h3 className="popup__content__title">
+                      Successfully Message Sent
+                  </h3>
+                  <p>We'll get back to you</p>
+                  <p>
+                      <button className="button button--success" onClick={togglePopup}  data-for="js_success-popup">Ok</button>
+                  </p>
+              </div>
+          </div>
+      </div>
       </div>
     )
 };

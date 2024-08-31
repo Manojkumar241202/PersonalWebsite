@@ -59,7 +59,7 @@
   .phone{
     display: flex;
     align-items: row;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     
   }
   .call_me{
@@ -135,10 +135,10 @@
  * Buttons.
  */
  .button {
-  margin-bottom: 4px;
-  padding: 8px 12px;
-  border: 1px solid #75B9E1;
-  border-radius: 3px;
+  margin-bottom: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border: 0.0625rem solid #75B9E1;
+  border-radius: 0.1875rem;
   background: #4FA0D0;
   /* cursor: pointer; */
   font-family: inherit;
@@ -148,13 +148,13 @@
   .button:focus {
     outline: none; }
   .button--warning {
-    border: 1px solid #FFB039;
+    border: 0.0625rem solid #FFB039;
     background: #ff9800; }
   .button--success {
-    border: 1px solid #71E6AB;
+    border: 0.0625rem solid #71E6AB;
     background: #4AD890; }
   .button--error {
-    border: 1px solid #F578A4;
+    border: 0.0625rem solid #F578A4;
     background: #EF5289; }
 
 /**
@@ -183,11 +183,11 @@
     top: 50%;
     left: 50%;
     z-index: 10001;
-    min-width: 400px;
-    padding: 25px 50px;
+    min-width: 25rem;
+    padding: 1.5625rem 3.125rem;
     background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 3px;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.1875rem;
     text-align: center;
     animation: hide-popup 0.3s forwards;
     /**
@@ -196,7 +196,7 @@
     .popup--visible .popup__content {
       animation: show-popup 0.3s forwards; }
     .popup--icon .popup__content {
-      padding-top: 130px;
+      padding-top: 8.125rem;
       /**
 			 * Animations on opened popups.
 			 *
@@ -220,22 +220,22 @@
 			 */ }
       .popup--icon .popup__content:before, .popup--icon .popup__content:after {
         position: absolute;
-        top: 25px;
+        top: 1.5625rem;
         left: 50%;
         transform: translateX(-50%);
         display: block;
-        height: 90px;
-        width: 90px; }
+        height: 5.625rem;
+        width: 5.625rem; }
       .popup--icon .popup__content:before {
         content: '';
-        border: 3px solid currentColor;
+        border: 0.1875rem solid currentColor;
         border-radius: 50%;
         transform: translateX(-50%) scale(1, 0);
         opacity: 0; }
       .popup--icon .popup__content:after {
         content: '\2713';
-        line-height: 90px;
-        font-size: 45px;
+        line-height: 5.625rem;
+        font-size: 2.8125rem;
         transform: translateX(-50%) scale(0);
         opacity: 0; }
       .popup--visible.popup--icon .popup__content:before {
@@ -258,8 +258,8 @@
         content: '\2717';
         color: #EF5289; }
     .popup__content__title {
-      margin-bottom: 10px;
-      font-size: 28px;
+      margin-bottom: 0.625rem;
+      font-size: 1.75rem;
       font-weight: 100;
       color: #626262; }
 

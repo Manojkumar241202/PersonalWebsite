@@ -22,7 +22,7 @@ const About = () => {
 
 
   const fetchRatings= (platform, setValue, session_key)=>{
-    axios.get("http://localhost:3001/ratings")
+    axios.get("/ratings")
     .then(response => {
       const rating= response.data.data["resources"][platform]["highest"]["value"];
       const round_off_rating= Math.floor(rating/100)*100;
@@ -108,7 +108,7 @@ const About = () => {
         </div>
       </div>
       <div className="experience" >
-        <h2>EXPERIENCE</h2>
+        <h2>EXPERIENCE & EDUCATION</h2>
         <ul className="experience-list" ref={experience_grid} style={experience_grid_dynamic_columns_style}>
             <li className="experience-item">
                 <div className="icon">
@@ -116,22 +116,33 @@ const About = () => {
                 </div>
                 <div className="experience-info">
                     <div className="time">
-                        JUN 2024 - PRESENT
+                        JUN 2016 - APR 2020
                     </div>
                     <h5 className="role">
                         SOFTWARE ENGINEER
                         <span> - NFERENCE</span>
                     </h5>
                   <ul className="responsibilities">
-                    <li>Developed and maintained backend asynchoronous applications using python, fastapi and langchain.</li>
-                    <li>Collaborated with cross-functional teams to define and deliver solutions.</li>
+                    <li>Developed and maintained the ECG Analyzer project, providing insights into heart-related findings from ECG images, including parameters and disorders.</li>
+                    <li>Solely managed ecg_upload_analysis, ecg_context, and nfer_llm apps, specializing in ECG-focused chatbots.</li>
                   </ul>
-                  <div className="projects">
-                    <h3>Projects:</h3>
-                    <ul>
-                      <li><strong>ECG ANALYZER:</strong> Provides ecg insights for ecg_image.</li>
-                    </ul>
-                  </div>
+                </div>
+            </li>
+            <li className="experience-item">
+                <div className="icon">
+                    <i className="fa fa-graduation-cap"></i>
+                </div>
+                <div className="experience-info">
+                    <div className="time">
+                        OCT 2020 - APR 2024
+                    </div>
+                    <h5 className="role">
+                       BACHELOR OF ENGINEERING (COMPUTER SCIENCE)
+                        <span> - SIET</span>
+                    </h5>
+                  <ul className="responsibilities">
+                    <li>Ranked 1st in the college coding portal, won multiple symposium coding events, and secured runner-up in the Smart India Hackathon 2022.</li>
+                  </ul>
                 </div>
             </li>
             <li className="experience-item">
@@ -140,22 +151,33 @@ const About = () => {
                 </div>
                 <div className="experience-info">
                     <div className="time">
-                        APR 2024 - JUN 2024
+                        APR 2023 - JUN 2024
                     </div>
                     <h5 className="role">
                         SOFTWARE ENGINEER INTERN
                         <span> - NFERENCE</span>
                     </h5>
                   <ul className="responsibilities">
-                    <li>Developed and maintained backend applications using python, fastapi and langchain.</li>
-                    <li>Collaborated with cross-functional teams to define and deliver solutions.</li>
+                    <li>Contributed to the development of a Knowledge Graph (KG) for medical terminology, significantly reducing anomalies in gene data.</li>
+                    <li>Assisted in the ecg_context and nfer_llm apps, enhancing the ECG chatbot functionality.</li>
                   </ul>
-                  <div className="projects">
-                    <h3>Projects:</h3>
-                    <ul>
-                      <li><strong>ECG ANALYZER:</strong> Provides ecg insights for ecg_image.</li>
-                    </ul>
-                  </div>
+                </div>
+            </li>
+            <li className="experience-item">
+                <div className="icon">
+                    <i className="fa fa-graduation-cap"></i>
+                </div>
+                <div className="experience-info">
+                    <div className="time">
+                        JUN 2018 - APR 2020
+                    </div>
+                    <h5 className="role">
+                        SECONDARY SCHOOL
+                        <span> - IJMS</span>
+                    </h5>
+                  <ul className="responsibilities">
+                    <li>Scored 99% in Computer Science in the Secondary School Performance.</li>
+                  </ul>
                 </div>
             </li>
         </ul>

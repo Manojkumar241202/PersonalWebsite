@@ -74,8 +74,8 @@ const About = () => {
             <li>Last Name: <span>Palanisamy</span></li>
             <li>Age: <span>21</span></li>
             <li>Nationality: <span>Indian</span></li>
-            <li>Address: <span>temp</span></li>
             <li>Phone: <span>+91 6362500396</span></li>
+            <li>Github: <a href="https://github.com/Manojkumar241202"><span>Manojkumar241202</span></a></li>
             <li>Email: <span>manojkumar.p24cse@gmail.com</span></li>
             <li>Linkedin: <a href="https://www.linkedin.com/in/manojkumar-p24/"><span>manojkumar-p24</span></a></li>
           </ul>

@@ -3,11 +3,11 @@ import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
-import Blog from './pages/Blog';
 import Contact from './pages/Contact/Contact';
 import Portfolio from './pages/Portfolio/Portfolio';
 import Error404 from './pages/Error';
 import MenuBar from './menu/MenuBar';
+import Blog from './pages/Blogs/Blog';
 const App = () => {
   return (
     <BrowserRouter>

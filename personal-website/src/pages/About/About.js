@@ -5,6 +5,7 @@ import SwipeButton from "../../utils/SwipeButton"
 import { handleDownload } from '../../utils/handlers/HandleDownload';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import axios from 'axios';
+import Preloader from '../../utils/preloader/Preloader';
 
 const About = () => {
   const experience_grid= useRef(null);
@@ -64,6 +65,7 @@ const About = () => {
   };
   return (
     <div className="about-page">
+      <Preloader/>
       <SectionTitle background_text="RESUME" grey_text="ABOUT " yellow_text="ME " />
 
       <div className="infos">

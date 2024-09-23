@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import './Portfolio.css';
 import SectionTitle from '../../utils/TitleSection';
+import Preloader from '../../utils/preloader/Preloader';
 
 const getHoverDirection = (event, item) => {
   const directions = ['top', 'right', 'bottom', 'left'];
@@ -109,6 +110,7 @@ const Portfolio= ()=>{
 
   return (
     <div className='portfolio'>
+      <Preloader/>
       <SectionTitle background_text="WORKS" grey_text="MY " yellow_text=" PORTFOLIO " />
       <DirectionAwareHover/>
     </div>

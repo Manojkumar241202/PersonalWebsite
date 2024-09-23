@@ -4,10 +4,12 @@ import nobg_profile from "./nobg_profile-modified.png"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { NavLink } from 'react-router-dom';
 import SwipeButton from '../../utils/SwipeButton';
+import Preloader from '../../utils/preloader/Preloader';
 const Home = () => {
 
   return (
     <div className="home">
+      <Preloader/>
       <div className= "bg-skew"></div>
       {/* <img src={require("./profile.jpg")} alt="profile"></img> */}
       <div className= "home-content">

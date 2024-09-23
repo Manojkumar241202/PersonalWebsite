@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import "./Blog.css";
 import SectionTitle from '../../utils/TitleSection';
+import Preloader from '../../utils/preloader/Preloader';
 
 const Blog = () => {
   const cardsPerPage = 6;
@@ -50,7 +51,7 @@ const Blog = () => {
   const handleNextClick = () => {
     let nextPage = currentPage + 1 > totalPages ? 1 : currentPage + 1;
     let visiblePageButtonRange= [];
-    visiblePageButtonRange.push(nextPage==totalPages ? nextPage-1 : nextPage);
+    visiblePageButtonRange.push(nextPage===totalPages ? nextPage-1 : nextPage);
     visiblePageButtonRange.push(Math.min(nextPage+PAGE_BUTTONS-1, totalPages));
 
     pageRef.current.forEach((page, index)=>{
@@ -71,7 +72,7 @@ const Blog = () => {
     let prevPage = currentPage - 1 < 1 ? totalPages : currentPage - 1;
     let visiblePageButtonRange= [];
     let prevButton= prevPage-1;
-    if(prevPage==1){
+    if(prevPage===1){
         visiblePageButtonRange.push(prevPage);
         visiblePageButtonRange.push(Math.min(totalPages,prevPage+1));
     }
@@ -98,6 +99,7 @@ const Blog = () => {
 
   return (
     <div className="blog">
+      <Preloader/>
       <SectionTitle background_text="POSTS" grey_text="MY " yellow_text=" BLOGS" />
       <div id="cards-container" className='cards-container'>
         {[...Array(20)].map((_, i) => (
@@ -123,7 +125,7 @@ const Blog = () => {
 
       <div className="pagination" ref={paginationRef}>
 
-<a className="prev-page" onClick= {handlePrevClick}>Prev</a>
+<a className="prev-page" href="#" onClick= {handlePrevClick}>Prev</a>
 {[...Array(totalPages)].map((_, i) => (
   <span
     className="page-number"
@@ -135,7 +137,7 @@ const Blog = () => {
     {i + 1}
   </span>
 ))}
-<a className="next-page" onClick={handleNextClick}>Next</a>
+<a className="next-page" href="#" onClick={handleNextClick}>Next</a>
 </div>
     </div>
   );

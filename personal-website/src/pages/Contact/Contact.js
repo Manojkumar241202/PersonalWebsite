@@ -3,19 +3,26 @@ import "./Contact.css";
 import SwipeButton from "../../utils/SwipeButton";
 import {useState} from "react";
 import Preloader from "../../utils/preloader/Preloader";
+import axios from 'axios';
 const Contact= () =>{
+
+    const initial_form_values = () => {
+        const saved_formValues = sessionStorage.getItem("formValues");
+        return saved_formValues ? JSON.parse(saved_formValues) : {
+            name: '',
+            email: '',
+            subject: '',
+            message: '',
+        };
+    };
     const [isVisible, setIsVisible] = useState(false);
   
     const togglePopup = () => {
     
       setIsVisible(!isVisible);
     };
-    const [formValues, setFormValues] = useState({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-  });
+
+    const [formValues, setFormValues] = useState(initial_form_values());
 
   const [formErrors, setFormErrors] = useState({
       name: false,
@@ -44,6 +51,17 @@ const Contact= () =>{
       console.log('Form submission prevented');
       if (handleFormValidation()) {
           // Trigger the popup or form submission logic
+
+          try {
+            console.log(formValues);
+            const response = axios
+                                .post('/save_message', formValues)
+                                .then((response) => console.log(response))
+                                .catch((error) => console.error(error));
+            console.log(response.data);
+          } catch (error) {
+            console.error('There was an error!', error);
+          }
           togglePopup();
 
           // Clear the message field
@@ -63,12 +81,11 @@ const Contact= () =>{
 
   const handleChange = (e) => {
       const { name, value } = e.target;
-      // console.log(e);
-      // console.log("name: "+name+" value: "+value);
       setFormValues(prevValues => ({
           ...prevValues,
           [name]: value
       }));
+      sessionStorage.setItem("formValues", JSON.stringify(formValues))
   };
     return (
       <div className="contact-page">

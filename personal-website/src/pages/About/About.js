@@ -118,7 +118,7 @@ const About = () => {
                 </div>
                 <div className="experience-info">
                     <div className="time">
-                        JUN 2016 - APR 2020
+                        JUN 2024 - PRESENT
                     </div>
                     <h5 className="role">
                         SOFTWARE ENGINEER

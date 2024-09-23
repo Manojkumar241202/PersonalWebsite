@@ -93,7 +93,7 @@
   }
   
   .form-control:focus {
-      border-color: #333;
+      border-color: var(--common-primary-color);
   }
   
   .message {
@@ -122,6 +122,10 @@
   display: flex;
   flex-direction: column;
 }
+input, textarea{
+  color: #666;
+}
+
 
 .input-row .error-message{
   padding:0 1.25rem;

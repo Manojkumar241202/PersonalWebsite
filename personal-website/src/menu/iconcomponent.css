@@ -4,6 +4,7 @@
     align-items: center;
     width: 3.125rem;
     height: 3.125rem;
+    text-align: center;
     border-radius: 50%;
     color: #666;
     background-color: #EEEEEE;
@@ -26,7 +27,7 @@
     content: attr(data-label);
     position: absolute;
     display: none;
-    right: 3.75rem; /* Adjusted to appear to the left of the circle */
+    right: 3.1875rem; /* Adjusted to appear to the left of the circle */
     color: white;
     font-size: 1rem;
   }

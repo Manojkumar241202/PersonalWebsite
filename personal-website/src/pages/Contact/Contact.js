@@ -2,6 +2,7 @@ import SectionTitle from "../../utils/TitleSection";
 import "./Contact.css";
 import SwipeButton from "../../utils/SwipeButton";
 import {useState} from "react";
+import Preloader from "../../utils/preloader/Preloader";
 const Contact= () =>{
     const [isVisible, setIsVisible] = useState(false);
   
@@ -71,6 +72,7 @@ const Contact= () =>{
   };
     return (
       <div className="contact-page">
+        <Preloader/>
           <SectionTitle background_text="CONTACT" grey_text="GET  IN " yellow_text=" TOUCH " />
           <div className="contact_page">
               <div className="details">

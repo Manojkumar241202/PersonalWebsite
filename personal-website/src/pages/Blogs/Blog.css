@@ -1,0 +1,110 @@
+.cards-container {
+    /* display: flex; */
+    margin: 0 auto;
+    justify-content: center;
+    align-content: center;
+    width:70%;
+    gap: 1.875rem;
+    padding: 3.125rem;
+    padding-top: 0rem;
+    font-weight: 400;
+    font-family: Sans-Serif;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.card-context{
+  padding: 1.25rem 1.5625rem 1.5625rem 1.5625rem ;
+  text-size-adjust: 100%;
+}
+.card {
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 28.125rem;
+    width: 21.8125rem;
+    transition: scale 0.3;
+    cursor: pointer;
+}
+
+.thumbnail img {
+    width: 21.8745rem;
+    height: 13.491rem;
+    transition: scale 0.3s ease;
+    transform-origin: 70% 50%;
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    /*gin: 0.9375rem 0.625rem;*/
+    margin: 0;
+    margin-bottom: 0.9375rem;
+    font-weight: bold;
+    line-height: 1.6875rem;
+    text-align: start;
+    
+}
+
+.thumbnail{
+  transition: border-bottom 0.2s ease;
+  border-bottom: 0.3125rem solid #cf973e;
+  overflow: hidden;
+  height: 13.491rem;
+}
+.card p {
+    /*padding: 0 0.9375rem 0.9375rem;*/
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.6875rem;
+    text-align: start;
+    color: #666;
+    
+}
+.card:hover > .card-context h3{
+  color: orange;
+}
+.card:hover > .thumbnail{
+  border-bottom-color:orange;
+}
+.card:hover  img{
+  scale: 1.2;
+}
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.25rem;
+    gap: 0.625rem;
+}
+
+.page-number{
+    background-color: black;
+    padding: 0.625rem 0.9375rem;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.page-number:hover{
+  background: #ffcc00;
+}
+.page-number.active {
+    background-color: #ffcc00;
+    color: white;
+    scale: 1.3;
+}
+
+.next-page, .prev-page{
+  color: rgb(102, 102, 102);
+  transition: border-bottom 0.2s ease;
+  border-bottom: 0.3125rem solid transparent;
+  text-decoration: none;
+}
+.next-page:hover, .prev-page:hover {
+    border-bottom-color: orange;
+}

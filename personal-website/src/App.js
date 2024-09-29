@@ -16,6 +16,9 @@ const App = () => {
   useEffect(() => {
     // Set the document title based on the route
     switch (location.pathname) {
+      case "/":
+        document.title = "Home - Manojkumar";
+        break;
       case "/home":
         document.title = "Home - Manojkumar";
         break;
@@ -28,8 +31,8 @@ const App = () => {
       case "/contact":
         document.title = "Contact - Manojkumar";
         break;
-      case "/blog":
-        document.title = "Blog - Manojkumar";
+      case "/blogs":
+        document.title = "Blogs - Manojkumar";
         break;
       default:
         document.title = "404 Not found";
@@ -45,7 +48,7 @@ const App = () => {
         <Route path="/about-me" element={<About />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/blogs" element={<Blog />} />
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="*" element={<Error404 />} />
       </Routes>

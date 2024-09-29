@@ -1,0 +1,199 @@
+/*.portfolio .slideshow ul{*/
+/*  border: 5px black dotted;*/
+/*}*/
+/*.portfolio .slideshow ul > li{*/
+/*  border: 5px red dotted;*/
+/*}*/
+
+.portfolio .slideshow ul > li.show:not(.current){
+    border-radius: 10px;
+    background-color: rgb(255,255,255, 0.7);
+    
+  }
+  /* .page-wrapper.light-theme .portfolio .slideshow .show:not(.current) figure {
+    background-color: rgba(0,0,0,0);
+  } */
+  .portfolio .slideshow {
+    position: fixed;
+    background: rgba(0,0,0,0.85);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1111;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+    text-align: left;
+  }
+  
+  .portfolio .slideshow-open .slideshow {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+  }
+  
+  .portfolio .slideshow ul {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    list-style: none;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translate3d(0,0,150px);
+    transform: translate3d(0,0,150px);
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+  }
+  
+  .portfolio .slideshow ul.animatable > li {
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+  }
+  
+  .portfolio .slideshow-open .slideshow ul {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
+  
+  .portfolio .slideshow ul > li {
+    display: flex;
+    justify-content: center;
+    width: 550px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    margin: -280px auto 0 -330px;
+    visibility: hidden;
+  }
+  
+  .portfolio .slideshow ul > li.show {
+    visibility: visible;
+  }
+  
+  .portfolio .slideshow ul > li:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    z-index: 111;
+    border-radius: 10px;
+  }
+  
+  .portfolio .slideshow ul > li.current:after {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, visibility 0s 0.3s;
+    transition: opacity 0.3s, visibility 0s 0.3s;
+  }
+.portfolio .slideshow figure {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 450px;
+    background-color: #fff;
+    padding: 10px 30px 5px  30px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 0;
+    align-items: center; /* Centers content horizontally */
+    justify-content: center; 
+  }
+  figure img {
+    /* border: 1px solid var(--common-primary-color); */
+    /* width: 100%; */
+
+    max-width: 60%; /* Ensures image does not overflow the width of the figure */
+    height: auto;    /* Maintains aspect ratio */
+    object-fit: contain; /* Ensures the image stays within the container */
+  }
+  
+  figcaption{
+    width: 100%;
+  }
+  .more-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding-left: 25px;
+    margin: 0 auto;
+    list-style: none;
+    justify-items: s;
+    align-items: center;
+  }
+  
+  .more-info.project-details {
+    align-items: left;
+  }
+  
+  
+  .portfolio .slideshow a {
+    text-decoration: underline;
+  }
+  
+  .portfolio .slideshow figcaption {
+    margin-bottom: 15px;
+  }
+  
+  .portfolio .slideshow figcaption h3 {
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    margin: 0;
+    color: var(--common-primary-color);
+    font-weight: 700;
+    text-align: center;
+    font-size: 33px;
+  }
+  
+  /* Navigation */
+  
+  .portfolio .slideshow nav span {
+    position: fixed;
+    z-index: 1000;
+    text-align: center;
+    cursor: pointer;
+    padding: 200px 30px;
+    color: #fff;
+  }
+  
+  .portfolio .slideshow nav span.nav-prev,
+  .portfolio .slideshow nav span.nav-next {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 41px;
+    line-height: 58px;
+  }
+  
+  .portfolio .slideshow nav span.nav-prev {
+    left: 0;
+  }
+  
+  .portfolio .slideshow nav span.nav-next {
+    right: 0;
+  }
+  
+  .portfolio .slideshow nav span.nav-close {
+    top: 30px;
+    right: 30px;
+    padding: 0;
+  }
+  
+  /* .page-wrapper.light-theme .portfolio .slideshow ul > li:after {
+    background: rgba(255, 255, 255, 0.77);
+  }
+   */
+/* .portfolio .slideshow {
+    background: rgba(0, 0, 0, 0.7);
+  }   */

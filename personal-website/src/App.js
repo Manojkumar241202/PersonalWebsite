@@ -8,6 +8,8 @@ import Portfolio from './pages/Portfolio/Portfolio';
 import Error404 from './pages/Error';
 import MenuBar from './menu/MenuBar';
 import Blog from './pages/Blogs/Blog';
+import SlideshowGallery from './pages/Portfolio/Slideshow/Slideshow';
+import RatingGraph from './pages/Portfolio/Slideshow/RatingGraph/RatingGraph';
 import { useLocation } from 'react-router-dom';
 
 const App = () => {
@@ -34,6 +36,12 @@ const App = () => {
       case "/blogs":
         document.title = "Blogs - Manojkumar";
         break;
+      case "/slideshow":
+        document.title = "slideshow - Manojkumar";
+        break;
+      case "/rating_graph":
+        document.title = "rating_graph - Manojkumar";
+        break;
       default:
         document.title = "404 Not found";
         break;
@@ -49,6 +57,8 @@ const App = () => {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blogs" element={<Blog />} />
+        <Route path="/slideshow" element={<SlideshowGallery />} />
+        <Route path="/rating_graph" element ={<RatingGraph/>} />
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="*" element={<Error404 />} />
       </Routes>

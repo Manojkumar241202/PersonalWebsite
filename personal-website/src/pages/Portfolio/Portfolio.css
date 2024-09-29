@@ -72,17 +72,14 @@
   100% { transform: translate3d(-100%, 0, 0); }
 }
 
-
-
-/**
- * BASIC CSS FOR DEMO PURPOSE
- */
 .layout {
-  width: 800px;
+  width: 75%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 19px;
+  padding-bottom: 40px;
 }
 
 .hover {
@@ -90,7 +87,7 @@
   position: relative;
   display: flex;
   flex: 1 1 30%;
-  margin: 1%;
+  /* margin: 1%; */
   height: 206px;
   width: 332px;
 
@@ -124,7 +121,7 @@
 }
 
 .item2{
-  background-image: url("https://cdn-b.saashub.com/images/app/service_logos/41/fb1029f65050/large.png?1582014860");
+  background-image: url("../../../public/assets/portfolio/codeforces_logo.png");
   background-repeat: no-repeat;
   background-color: white;
   background-position: center;
@@ -132,14 +129,14 @@
 }
 
 .item2{
-  background-image: url("https://cdn-b.saashub.com/images/app/service_logos/41/fb1029f65050/large.png?1582014860");
+  background-image: url("../../../public/assets/portfolio/codechef_logo.png");
   background-repeat: no-repeat;
   background-color: white;
   background-position: center;
   box-shadow: 0.3125rem 0 0.4375rem black;
 }
 .item3{
-  background-image: url("https://user-images.githubusercontent.com/36547915/97088991-45da5d00-1652-11eb-900f-80d106540f4f.png");
+  background-image: url("../../../public/assets/portfolio/leetcode_logo.png");
   background-repeat: no-repeat;
   background-color: white;
   background-position: center;
@@ -147,7 +144,7 @@
   background-size: auto;
 }
 .item4{
-  background-image: url("C:\Users\manoj\AppData\Local\Programs\Python\Python38-32\atcoder_icon-fotor.jpg");
+  background-image: url("../../../public/assets/portfolio/atcoder_logo.png");
   background-repeat: no-repeat;
   background-color: white;
   background-position: center;
@@ -155,7 +152,7 @@
   /* background-size: auto; */
 }
 .item5{
-  background-image: url("C:\Users\manoj\AppData\Local\Programs\Python\Python38-32\github_icon-fotor.jpg");
+  background-image: url("../../../public/assets/portfolio/github_logo.png");
   background-repeat: no-repeat;
   background-color: white;
   background-position: center;
@@ -163,9 +160,14 @@
 }
 
 .item6{
-  background-image: url("C:\Users\manoj\AppData\Local\Programs\Python\Python38-32\voting_logo-fotor.jpg");
+  background-image: url("../../../public/assets/portfolio/chatbot_logo.png");
   background-repeat: no-repeat;
   background-color: white;
   background-position: center;
   box-shadow: 0.3125rem 0 0.4375rem black;
+}
+
+.layout > div{
+  width:  342px;
+  height: 213px;
 }

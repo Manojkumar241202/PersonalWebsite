@@ -51,7 +51,7 @@ const SlideshowGallery = ({current_index=0}) => {
         else{
           response = await axios.get('/ratings');
           response= response.data;
-          sessionStorage.setItem(`ratings`,JSON.stringify(response.data));
+          sessionStorage.setItem(`ratings`,JSON.stringify(response));
         }
         let platforms = { 
           codechef: "codechef.com",

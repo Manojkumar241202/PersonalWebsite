@@ -31,7 +31,7 @@ const Home = () => {
           return;
         }
         const response = await axios.get("/titles");
-        if (response.data.resources) {
+        if (response.data) {
           sessionStorage.setItem("titles", JSON.stringify(response.data));
   
         } else {

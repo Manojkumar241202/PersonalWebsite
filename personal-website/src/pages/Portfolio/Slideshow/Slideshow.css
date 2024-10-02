@@ -1,0 +1,243 @@
+/*.portfolio .slideshow ul{*/
+/*  border: 0.3125rem black dotted;*/
+/*}*/
+/*.portfolio .slideshow ul > li{*/
+/*  border: 0.3125rem red dotted;*/
+/*}*/
+
+.portfolio .slideshow ul > li.show:not(.current){
+    border-radius: 0.625rem;
+    background-color: rgb(255,255,255, 0.7);
+    
+  }
+  /* .page-wrapper.light-theme .portfolio .slideshow .show:not(.current) figure {
+    background-color: rgba(0,0,0,0);
+  } */
+  .portfolio .slideshow {
+    position: fixed;
+    background: rgba(0,0,0,0.85);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1111;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    -webkit-perspective: 62.5rem;
+    perspective: 62.5rem;
+    -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+    text-align: left;
+  }
+  
+  .portfolio .slideshow-open .slideshow {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+  }
+  
+  .portfolio .slideshow ul {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    list-style: none;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translate3d(0,0,9.375rem);
+    transform: translate3d(0,0,9.375rem);
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+  }
+  
+  .portfolio .slideshow ul.animatable > li {
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+  }
+  
+  .portfolio .slideshow-open .slideshow ul {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
+  
+  .portfolio .slideshow ul > li {
+    display: flex;
+    justify-content: center;
+    width: 34.375rem;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    margin: -17.5rem auto 0 -20.625rem;
+    visibility: hidden;
+  }
+  
+  .portfolio .slideshow ul > li.show {
+    visibility: visible;
+  }
+  
+  .portfolio .slideshow ul > li:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    z-index: 111;
+    border-radius: 0.625rem;
+  }
+  
+  .portfolio .slideshow ul > li.current:after {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, visibility 0s 0.3s;
+    transition: opacity 0.3s, visibility 0s 0.3s;
+  }
+.portfolio .slideshow figure {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 28.125rem;
+    background-color: #fff;
+    padding: 0.625rem 1.875rem 0.3125rem  1.875rem;
+    overflow: hidden;
+    border-radius: 0.625rem;
+    margin: 0;
+    align-items: center; /* Centers content horizontally */
+    justify-content: center; 
+  }
+  .slide_title {
+    display: block;
+    text-align: center;
+    white-space: nowrap; /* Prevent wrapping to a new line */
+    overflow: hidden; /* Avoid overflow */
+  }
+  
+  .title_logo {
+    display: inline-block;
+    width: 1.875rem; /* Adjust the size of the image */
+    height: auto; /* Keep the aspect ratio */
+    /* vertical-align: middle; */
+  }
+  .title_name {
+    display: inline-block;
+    margin: 0;
+    padding-left: 0.625rem;
+    white-space: nowrap; /* Prevent the text from wrapping */
+  }
+  figure img {
+    /* border: 0.0625rem solid var(--common-primary-color); */
+    /* width: 100%; */
+
+    max-width: 60%; /* Ensures image does not overflow the width of the figure */
+    height: auto;    /* Maintains aspect ratio */
+    object-fit: contain; /* Ensures the image stays within the container */
+  }
+  .rating_graph{
+    padding-top: 2.5rem;
+    padding-left: 0.625rem;
+    padding-right: 0.3125rem;
+    border: 0.125rem solid rgb(86, 83, 83);
+    box-shadow: inset 0 0 0.4375rem rgb(90, 90, 90);
+    border-radius: 1.5625rem;
+    width: 100%;
+  }
+  
+  figcaption{
+    width: 100%;
+  }
+  .more-info {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 0.625rem;
+    column-gap: 0.8125rem;
+    padding-left: 1.5625rem;
+    margin: 0 auto;
+    list-style: none;
+    justify-items: start;
+    align-items: center;
+  }
+  .redirect_icon {
+    margin-left: 0.3125rem; /* Space between the h3 and the redirect icon */
+    transform: translateY(-0.0938rem);
+    font-size: 1rem; /* Adjust the size of the icon */
+    color: #666; /* Use the text color of the h3 */
+    cursor: pointer; /* Change the cursor to pointer on hover */
+  }
+  
+  .redirect_icon:hover {
+    color: #000000; /* Change color on hover (optional) */
+  }
+
+  @keyframes shake {
+    0% { transform: translate(0); }
+    25% { transform: translate(-0.125rem, 0); }
+    50% { transform: translate(0.125rem, 0); }
+    75% { transform: translate(-0.125rem, 0); }
+    100% { transform: translate(0); }
+  }
+  .shake {
+    animation: shake 0.5s ease; /* Apply the shake animation */
+  }
+  .more-info.project-details {
+    align-items: left;
+  }
+  
+  
+  .portfolio .slideshow a {
+    text-decoration: underline;
+  }
+  
+  .portfolio .slideshow figcaption {
+    margin-bottom: 0.9375rem;
+  }
+  
+  .portfolio .slideshow figcaption h3 {
+    text-transform: uppercase;
+    padding-bottom: 1.25rem;
+    margin: 0;
+    color: var(--common-primary-color);
+    font-weight: 700;
+    text-align: center;
+    font-size: 2.0625rem;
+  }
+  
+  /* Navigation */
+  
+  .portfolio .slideshow nav span {
+    position: fixed;
+    z-index: 1000;
+    text-align: center;
+    cursor: pointer;
+    padding: 12.5rem 1.875rem;
+    color: #fff;
+  }
+  
+  .portfolio .slideshow nav span.nav-prev,
+  .portfolio .slideshow nav span.nav-next {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 2.5625rem;
+    line-height: 3.625rem;
+  }
+  
+  .portfolio .slideshow nav span.nav-prev {
+    left: 0;
+  }
+  
+  .portfolio .slideshow nav span.nav-next {
+    right: 0;
+  }
+  
+  .portfolio .slideshow nav span.nav-close {
+    top: 1.875rem;
+    right: 1.875rem;
+    padding: 0;
+  }
+  

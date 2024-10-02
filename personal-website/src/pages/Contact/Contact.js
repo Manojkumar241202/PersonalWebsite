@@ -53,12 +53,10 @@ const Contact= () =>{
           // Trigger the popup or form submission logic
 
           try {
-            console.log(formValues);
             const response = axios
                                 .post('/save_message', formValues)
                                 .then((response) => console.log(response))
                                 .catch((error) => console.error(error));
-            console.log(response.data);
           } catch (error) {
             console.error('There was an error!', error);
           }

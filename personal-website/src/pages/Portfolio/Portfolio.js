@@ -1,9 +1,12 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './Portfolio.css';
 import SectionTitle from '../../utils/TitleSection';
 import Preloader from '../../utils/preloader/Preloader';
+import SlideshowGallery from './Slideshow/Slideshow';
+
 
 const getHoverDirection = (event, item) => {
+
   const directions = ['top', 'right', 'bottom', 'left'];
   
   const w = item.offsetWidth;
@@ -17,7 +20,7 @@ const getHoverDirection = (event, item) => {
   return directions[d];
 };
 
-const DirectionAwareHover = () => {
+const DirectionAwareHover = ({setSlideshowImage}) => {
   const itemRef1 = useRef(null);
   const itemRef2 = useRef(null);
   const itemRef3 = useRef(null);
@@ -42,8 +45,10 @@ const DirectionAwareHover = () => {
     Item_6 : "https://github.com/Manojkumar241202/Voting_management_system" 
   };
   const handleClick = (item) => {
-    console.log(items[item], item);
-    window.open(items[item], '_blank', 'noopener,noreferrer');
+    const keysArray = Object.keys(items);
+    const itemIndex= keysArray.indexOf(item);
+    setSlideshowImage(itemIndex);
+    // window.open(items[item], '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -100,19 +105,33 @@ const DirectionAwareHover = () => {
         onMouseLeave={(e) => handleMouseEnterLeave(e, itemRef6)}
       >
         <div className="content"></div>
-        <div className="overlay" onClick={()=> handleClick("Item_6")}>VOTING MANAGEMENT SYSTEM</div>
+        <div className="overlay" onClick={()=> handleClick("Item_6")}>GPT-CLONE</div>
       </div>
     </div>
   );
 };
 
 const Portfolio= ()=>{
+  const [slideshowImage, setSlideshowImage] = useState(null); 
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const isSlideshowClosed = sessionStorage.getItem('slideshowClosed');
+      if (isSlideshowClosed === 'true') {
+        setSlideshowImage(null);
+      }
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className='portfolio'>
       <Preloader/>
       <SectionTitle background_text="WORKS" grey_text="MY " yellow_text=" PORTFOLIO " />
-      <DirectionAwareHover/>
+      <DirectionAwareHover setSlideshowImage={setSlideshowImage}/>
+      {
+          slideshowImage != null && <SlideshowGallery current_index={slideshowImage} />
+      }
     </div>
   )
 }

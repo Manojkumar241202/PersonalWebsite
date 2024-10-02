@@ -144,7 +144,7 @@ input, textarea{
   border: 0.0625rem solid #75B9E1;
   border-radius: 0.1875rem;
   background: #4FA0D0;
-  /* cursor: pointer; */
+  cursor: pointer;
   font-family: inherit;
   text-transform: uppercase;
   /* cursor: pointer; */

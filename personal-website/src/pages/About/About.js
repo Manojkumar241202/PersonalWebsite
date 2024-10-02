@@ -30,7 +30,7 @@ const About = () => {
         ratings = JSON.parse(sessionStorage.getItem("ratings"));
       } else {
         try {
-          const response = await axios.get("/ratings");  // Await the API call
+          const response = await axios.get("/api/ratings");  // Await the API call
           ratings = response.data;  // Store response data
           sessionStorage.setItem("ratings", JSON.stringify(response.data));  // Save to sessionStorage
         } catch (error) {

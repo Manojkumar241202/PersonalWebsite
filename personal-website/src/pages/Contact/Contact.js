@@ -54,7 +54,7 @@ const Contact= () =>{
 
           try {
             const response = axios
-                                .post('/save_message', formValues)
+                                .post('/api/save_message', formValues)
                                 .then((response) => console.log(response))
                                 .catch((error) => console.error(error));
           } catch (error) {

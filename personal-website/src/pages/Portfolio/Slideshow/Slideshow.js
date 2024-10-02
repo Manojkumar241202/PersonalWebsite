@@ -49,7 +49,7 @@ const SlideshowGallery = ({current_index=0}) => {
           response= JSON.parse(sessionStorage.getItem(`ratings`));
         }
         else{
-          response = await axios.get('/ratings');
+          response = await axios.get('/api/ratings');
           response= response.data;
           sessionStorage.setItem(`ratings`,JSON.stringify(response));
         }
@@ -85,7 +85,7 @@ const SlideshowGallery = ({current_index=0}) => {
           response= JSON.parse(sessionStorage.getItem(`titles`));
         }
         else{
-          response = await axios.get('/titles');
+          response = await axios.get('/api/titles');
           response= response.data;
           sessionStorage.setItem(`titles`,JSON.stringify(response));
         }

@@ -13,7 +13,7 @@ const Home = () => {
         if(sessionStorage.getItem("ratings")){
           return;
         }
-        const response = await axios.get("/ratings");
+        const response = await axios.get("/api/ratings");
         if (response.data.resources) {
           sessionStorage.setItem("ratings", JSON.stringify(response.data));
   
@@ -30,7 +30,7 @@ const Home = () => {
         if(sessionStorage.getItem("titles")){
           return;
         }
-        const response = await axios.get("/titles");
+        const response = await axios.get("/api/titles");
         if (response.data) {
           sessionStorage.setItem("titles", JSON.stringify(response.data));
   

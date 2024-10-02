@@ -11,6 +11,8 @@ import Blog from './pages/Blogs/Blog';
 import SlideshowGallery from './pages/Portfolio/Slideshow/Slideshow';
 import { useLocation } from 'react-router-dom';
 import RatingGraphCustom from './pages/Portfolio/Slideshow/RatingGraph/RatingGraphCustom';
+import BlogTest from './pages/Blogs/BlogTest';
+
 const App = () => {
   const location = useLocation(); // Use useLocation now that App is within BrowserRouter
 
@@ -35,6 +37,9 @@ const App = () => {
       case "/blogs":
         document.title = "Blogs - Manojkumar";
         break;
+      case "/blogs_test":
+        document.title = "blogs_testing - Manojkumar";
+        break;
       case "/slideshow":
         document.title = "slideshow - Manojkumar";
         break;
@@ -58,6 +63,7 @@ const App = () => {
         <Route path="/blogs" element={<Blog />} />
         <Route path="/slideshow" element={<SlideshowGallery />} />
         <Route path="/rating_graph" element ={<RatingGraphCustom/>} />
+        <Route path="/blogs_test" element ={<BlogTest/>} />
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="*" element={<Error404 />} />
       </Routes>

@@ -3,7 +3,7 @@ import "./Blog.css";
 import SectionTitle from '../../utils/TitleSection';
 import Preloader from '../../utils/preloader/Preloader';
 
-const Blog = () => {
+const BlogTest = () => {
   const cardsPerPage = 6;
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -96,31 +96,30 @@ const Blog = () => {
       <Preloader/>
       <SectionTitle background_text="POSTS" grey_text="MY " yellow_text=" BLOGS" />
       <div id="cards-container" className='cards-container'>
+        {[...Array(20)].map((_, i) => (
           <div
-            key={0}
-            onClick={() =>{
-              window.open("https://medium.com/@manojkumar853453/understanding-time-and-space-complexity-in-c-5af66496e3ef", "_blank");
-            }}
+            key={i}
             className="card"
             // style={{ display: "none" }}
-            ref={(el) => cardsRef.current[0] = el} // Attach a ref to each card
+            ref={(el) => cardsRef.current[i] = el} // Attach a ref to each card
           >
-            <div className="thumbnail time_and_space_complexity">
+            <div className="thumbnail">
               <img
-                src="/assets/blog/time_and_space_complexity.png"
-                alt="Time and Space Complexity"
+                src="https://tunis-wp.ibthemespro.com/wp-content/uploads/2023/09/blog-post-5.jpg"
+                alt="Web Accessibility"
               />
             </div>
             <div className="card-context">
-              <h3>Understanding Time and Space Complexity in C++</h3>
-              <p>When writing C++ programs, two important aspects to consider are time complexity and space complexity. They help us analyze the performance and efficiency of our algorithms.</p>
+              <h3>Everything You Need to Know About Web Accessibility</h3>
+              <p>Aliquam hendrerit sollicitudin purus, quis rutrum mi accumsan nec. Quisque bibendum orci ac nibh facilisis, at malesuada orci congue.</p>
             </div>
           </div>
+        ))}
       </div>
 
       <div className="pagination" ref={paginationRef}>
 
-<button className="prev-page" onClick= {handlePrevClick}>Prev</button>
+<button className="prev-page" href="#" onClick= {handlePrevClick}>Prev</button>
 {[...Array(totalPages)].map((_, i) => (
   <span
     className="page-number"
@@ -138,4 +137,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default BlogTest;

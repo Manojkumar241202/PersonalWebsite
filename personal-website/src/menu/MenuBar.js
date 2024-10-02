@@ -21,7 +21,7 @@ const location = useLocation();
         <IconComponent iconClass="fas fa-envelope" label="CONTACT" isActive={isActiveRoute('/contact')} ></IconComponent>
       </NavLink>
       <NavLink to="/blogs" style={{ textDecoration: 'none' }} >
-        <IconComponent iconClass="fas fa-pencil"  label="BLOGS" isActive={isActiveRoute('/blog')} ></IconComponent>
+        <IconComponent iconClass="fas fa-pencil"  label="BLOGS" isActive={isActiveRoute('/blogs')} ></IconComponent>
       </NavLink>
       </div>
   )

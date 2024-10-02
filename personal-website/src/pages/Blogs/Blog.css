@@ -13,7 +13,7 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 .card-context{
-  padding: 1.25rem 1.5625rem 1.5625rem 1.5625rem ;
+  padding: 0.4375rem 1.5625rem 1.5625rem 1.5625rem ;
   text-size-adjust: 100%;
 }
 .card {
@@ -22,7 +22,7 @@
     overflow: hidden;
     box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
     text-align: center;
-    height: 28.125rem;
+    height: 28.4375rem;
     width: 21.8125rem;
     transition: scale 0.3;
     cursor: pointer;
@@ -32,9 +32,8 @@
     width: 21.8745rem;
     height: 13.491rem;
     transition: scale 0.3s ease;
-    transform-origin: 70% 50%;
+    
 }
-
 .card h3 {
     font-size: 1.25rem;
     font-weight: 700;
@@ -64,10 +63,10 @@
     
 }
 .card:hover > .card-context h3{
-  color: orange;
+  color: var(--common-primary-color);
 }
 .card:hover > .thumbnail{
-  border-bottom-color:orange;
+  border-bottom-color:var(--common-primary-color);
 }
 .card:hover  img{
   scale: 1.2;
@@ -107,4 +106,21 @@
 }
 .next-page:hover, .prev-page:hover {
     border-bottom-color: orange;
+}
+
+button{
+  padding: 0;
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+}
+
+/* thumbail scale alternation using additional class */
+
+.thumbnail.time_and_space_complexity img{
+  transform-origin: 100% 50%;
 }

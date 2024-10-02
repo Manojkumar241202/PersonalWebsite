@@ -4,7 +4,7 @@ const path = require('path');
 const axios = require('axios');
 const cors = require('cors');  
 const admin = require('firebase-admin');
-const serviceAccount = require('./firebase_creds.json'); // Replace with the correct path
+const serviceAccount = require(path.join(__dirname, './firebase_creds.json')); // Replace with the correct path
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: 'https://personal-website-40d06-default-rtdb.asia-southeast1.firebasedatabase.app/',

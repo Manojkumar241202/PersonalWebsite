@@ -4,7 +4,6 @@ const path = require('path');
 const axios = require('axios');
 const cors = require('cors');  
 const admin = require('firebase-admin');
-const serviceAccount = require(path.join(__dirname, './firebase_creds.json')); // Replace with the correct path
 admin.initializeApp({
   credential: admin.credential.cert({
     projectId: process.env.FIREBASE_PROJECT_ID,

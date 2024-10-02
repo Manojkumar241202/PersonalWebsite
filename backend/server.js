@@ -6,8 +6,12 @@ const cors = require('cors');
 const admin = require('firebase-admin');
 const serviceAccount = require(path.join(__dirname, './firebase_creds.json')); // Replace with the correct path
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://personal-website-40d06-default-rtdb.asia-southeast1.firebasedatabase.app/',
+  credential: admin.credential.cert({
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'), // Handle newline characters
+    clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+  }),
+  databaseURL: "https://your-project-id.firebaseio.com"
 });
 
 const CODING_PLATFORMS = Object.freeze({

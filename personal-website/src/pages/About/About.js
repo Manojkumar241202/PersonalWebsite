@@ -11,10 +11,10 @@ const About = () => {
   const experience_grid= useRef(null);
   const [experience_grid_columns, set_experience_grid_columns] = useState(0);
 
-  const [codechef_rating, set_codechef_rating]= useState(-1);
-  const [codeforces_rating, set_codeforces_rating]= useState(-1);
-  const [leetcode_rating, set_leetcode_rating]= useState(-1);
-  const [atcoder_rating, set_atcoder_rating]= useState(-1);
+  const [codechef_rating, set_codechef_rating]= useState("loading");
+  const [codeforces_rating, set_codeforces_rating]= useState("loading");
+  const [leetcode_rating, set_leetcode_rating]= useState("loading");
+  const [atcoder_rating, set_atcoder_rating]= useState("loading");
 
 
 

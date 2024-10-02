@@ -19,8 +19,6 @@ const Blog = () => {
     const totalCards = cardsRef.current.length;
     setTotalPages(Math.ceil(totalCards / cardsPerPage));
     handlePageClick(1);
-    console.log("totalcards: "+ totalCards);
-
   }, [totalPages]);
 
   const handlePageClick = (page) => {
@@ -56,10 +54,8 @@ const Blog = () => {
 
     pageRef.current.forEach((page, index)=>{
         let current_page = index+1;
-        console.log("page_interval: " + visiblePageButtonRange[0]+ " "+ current_page+ " "+ visiblePageButtonRange[1]);
         if (visiblePageButtonRange[0]<=current_page && current_page<=visiblePageButtonRange[1]){
             page.style.display= "block";
-            console.log("visible-page: "+ current_page);
         }
         else{
             page.style.display="none"
@@ -82,10 +78,8 @@ const Blog = () => {
     }
     pageRef.current.forEach((page, index)=>{
         let current_page = index+1;
-        console.log("page_interval: " + visiblePageButtonRange[0]+ " "+ current_page+ " "+ visiblePageButtonRange[1]);
         if (visiblePageButtonRange[0]<=current_page && current_page<=visiblePageButtonRange[1]){
             page.style.display= "block";
-            console.log("visible-page: "+ current_page);
         }
         else{
             page.style.display="none"

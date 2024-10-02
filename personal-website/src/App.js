@@ -9,9 +9,8 @@ import Error404 from './pages/Error';
 import MenuBar from './menu/MenuBar';
 import Blog from './pages/Blogs/Blog';
 import SlideshowGallery from './pages/Portfolio/Slideshow/Slideshow';
-import RatingGraph from './pages/Portfolio/Slideshow/RatingGraph/RatingGraph';
 import { useLocation } from 'react-router-dom';
-
+import RatingGraphCustom from './pages/Portfolio/Slideshow/RatingGraph/RatingGraphCustom';
 const App = () => {
   const location = useLocation(); // Use useLocation now that App is within BrowserRouter
 
@@ -58,7 +57,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blogs" element={<Blog />} />
         <Route path="/slideshow" element={<SlideshowGallery />} />
-        <Route path="/rating_graph" element ={<RatingGraph/>} />
+        <Route path="/rating_graph" element ={<RatingGraphCustom/>} />
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="*" element={<Error404 />} />
       </Routes>

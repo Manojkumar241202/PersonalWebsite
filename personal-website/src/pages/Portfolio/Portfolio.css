@@ -78,8 +78,8 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 19px;
-  padding-bottom: 40px;
+  gap: 1.1875rem;
+  padding-bottom: 2.5rem;
 }
 
 .hover {
@@ -88,8 +88,8 @@
   display: flex;
   flex: 1 1 30%;
   /* margin: 1%; */
-  height: 206px;
-  width: 332px;
+  height: 12.875rem;
+  width: 20.75rem;
 
   align-items: center;
   justify-items: center;
@@ -168,6 +168,6 @@
 }
 
 .layout > div{
-  width:  342px;
-  height: 213px;
+  width:  21.375rem;
+  height: 13.3125rem;
 }

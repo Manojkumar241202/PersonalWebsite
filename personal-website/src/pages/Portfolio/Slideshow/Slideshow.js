@@ -1,9 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import './Slideshow.css';
-import './CBPGridGallery.js';  // Import your cbpGridGallery.js file
-
+import './CBPGridGallery.js';
+import RatingGraphCustom from './RatingGraph/RatingGraphCustom.js';
+import axios from 'axios';
 const SlideshowGallery = ({current_index=0}) => {
-  const [itemIndex, setItemIndex] = useState(current_index); 
+  const [titles, setTitles] = useState({
+    codechef: "loading",
+    codeforces: "loading",
+    leetcode: "loading",
+    atcoder: "loading",
+  });
+  const [ratings, setRatings]= useState({
+    codechef:{
+      max:'loading',
+      current: 'loading'
+    },
+    codeforces:{
+      max:'loading',
+      current: 'loading'
+    },
+    leetcode:{
+      max:'loading',
+      current: 'loading'
+    },
+    atcoder:{
+      max:'loading',
+      current: 'loading'
+    }
+  });
   useEffect(() => {
     // Ensure gallery is initialized after the component is mounted
     const initializeGallery = () => {
@@ -15,11 +39,76 @@ const SlideshowGallery = ({current_index=0}) => {
     };
 
     initializeGallery();
-    return ()=>{
-        console.log("current_index: " + current_index);
-
-    }
   }, [current_index]);
+
+  useEffect(() => {
+    const fetchRatings = async () => {
+      let response = {};
+      try {
+        if (sessionStorage.getItem(`ratings`)){
+          response= JSON.parse(sessionStorage.getItem(`ratings`));
+        }
+        else{
+          response = await axios.get('/ratings');
+          response= response.data;
+          sessionStorage.setItem(`ratings`,JSON.stringify(response.data));
+        }
+        let platforms = { 
+          codechef: "codechef.com",
+          codeforces: "codeforces.com",
+          atcoder: "atcoder.jp",
+          leetcode: "leetcode.com"
+        };
+        let all_ratings = {};
+        for (let platform in platforms) {
+            let site = platforms[platform]; // Get the corresponding site name
+            let data = response.resources[site]; // Access the data using the site name
+
+            if (!all_ratings[platform]) {
+                all_ratings[platform] = {}; // Initialize the nested object if it doesn't exist
+            }
+
+            all_ratings[platform]["max"] = data.max;
+            let length = data.data.length;
+            all_ratings[platform]["current"] = data.data[length - 1].new_rating; // Get the latest rating
+        }
+        setRatings(all_ratings);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    const fetchTitles = async () => {
+      let response = {};
+      try {
+        if (sessionStorage.getItem(`titles`)){
+          response= JSON.parse(sessionStorage.getItem(`titles`));
+        }
+        else{
+          response = await axios.get('/titles');
+          response= response.data;
+          sessionStorage.setItem(`titles`,JSON.stringify(response));
+        }
+        setTitles(response);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchRatings();
+    fetchTitles();
+  }, []);
+  const handleClick = (e) => {
+    e.preventDefault(); 
+
+    const icon = e.currentTarget.querySelector('.redirect_icon');
+    icon.classList.add('shake');
+    const url = e.currentTarget.getAttribute('href')
+    // Remove the shake class after the animation ends
+    setTimeout(() => {
+      window.open(url, "_blank"); // Open in a new tab
+      icon.classList.remove('shake'); // Remove shake class (optional)
+    }, 200); // Match this duration with the animation duration in CSS
+  };
 
   return (
     <div className="portfolio portfolio-row">
@@ -29,79 +118,141 @@ const SlideshowGallery = ({current_index=0}) => {
             <li>
               <figure>
                 <figcaption>
-                  <h3 className="m-0">CODEFORCES PROFILE</h3>
+                  <div className='slide_title'>
+                    <img
+                      className='title_logo'
+                      decoding="async"
+                      src="/assets/portfolio/codeforces_com.png"
+                      alt="codeforces"
+                    />
+                    <h3 className="m-0 title_name">CODEFORCES PROFILE</h3>
+                    <a href="https://codeforces.com/profile/Manojkumar2412" target="_blank" rel="noopener noreferrer" onClick={handleClick}>
+                      <i className="fas fa-external-link-alt redirect_icon"></i>
+                    </a>
+                  </div>
                   <ol className="more-info">
                     <li><i className="fas fa-user"></i> <strong>Username: </strong> Manojkumar2412</li>
-                    <li><i className="fas fa-trophy"></i> <strong>Max rating: </strong> 1537</li>
-                    <li><i className="fas fa-chart-line"></i> <strong>Current rating: </strong> 1447</li>
-                    <li><i className="fas fa-star"></i> <strong>Title: </strong> Specialist</li>
+                    <li><i className="fas fa-trophy"></i> <strong>Max rating: </strong> {ratings.codeforces.max}</li>
+                    <li><i className="fas fa-chart-line"></i> <strong>Current rating: </strong>{ratings.codeforces.current}</li>
+                    <li><i className="fas fa-star"></i> <strong>Title: </strong> {titles.codeforces}</li>
                   </ol>
                 </figcaption>
-                <img
+                {/* <img
                   decoding="async"
                   src="/assets/portfolio/codeforces_logo.png"
                   alt="codeforces"
-                />
+                /> */}
+                <div className='rating_graph'>
+                  <RatingGraphCustom platform='codeforces' />
+                </div>
               </figure>
             </li>
             <li>
               <figure>
                 <figcaption>
-                  <h3 className="m-0">CODECHEF PROFILE</h3>
+                <div className='slide_title'>
+                    <img
+                      className='title_logo'
+                      decoding="async"
+                      src="/assets/portfolio/codechef_com.png"
+                      alt="codechef"
+                    />
+                    <h3 className="m-0 title_name">CODECHEF PROFILE</h3>
+                    <a href="https://www.codechef.com/users/manojkumar2412" target="_blank" rel="noopener noreferrer" onClick={handleClick}>
+                      <i className="fas fa-external-link-alt redirect_icon"></i>
+                    </a>
+                  </div>
                   <ol className="more-info">
                     <li><i className="fas fa-user"></i> <strong>Username: </strong> manojkumar2412</li>
-                    <li><i className="fas fa-trophy"></i> <strong>Max rating: </strong> 1875 </li>
-                    <li><i className="fas fa-chart-line"></i> <strong>Current rating: </strong> 1817</li>
-                    <li><i className="fas fa-star"></i> <strong>Title: </strong> Four-Star</li>
+                    <li><i className="fas fa-trophy"></i> <strong>Max rating: </strong> {ratings.codechef.max} </li>
+                    <li><i className="fas fa-chart-line"></i> <strong>Current rating: </strong> {ratings.codechef.current}</li>
+                    <li><i className="fas fa-star"></i> <strong>Title: </strong> {titles.codechef}</li>
                   </ol>
                 </figcaption>
-                <img
+                {/* <img
                   decoding="async"
                   src="/assets/portfolio/codechef_logo.png"
                   alt="codechef"
-                />
+                /> */}
+                <div className='rating_graph'>
+                  <RatingGraphCustom platform='codechef' />
+                </div>
               </figure>
             </li>
             <li>
               <figure>
                 <figcaption>
-                <h3 className="m-0">LEETCODE PROFILE</h3>
+                <div className='slide_title'>
+                    <img
+                      className='title_logo'
+                      decoding="async"
+                      src="/assets/portfolio/leetcode_com.png"
+                      alt="leetcode"
+                    />
+                    <h3 className="m-0 title_name">LEETCODE PROFILE</h3>
+                    <a href="https://leetcode.com/u/manojkumar2412/" target="_blank" rel="noopener noreferrer" onClick={handleClick}>
+                      <i className="fas fa-external-link-alt redirect_icon"></i>
+                    </a>
+                  </div>
                   <ol className="more-info">
                     <li><i className="fas fa-user"></i> <strong>Username: </strong> manojkumar2412</li>
-                    <li><i className="fas fa-trophy"></i> <strong>Max rating: </strong> 2056</li>
-                    <li><i className="fas fa-chart-line"></i> <strong>Current rating: </strong> 1946</li>
-                    <li><i className="fas fa-star"></i> <strong>Title: </strong> Guardian</li>
+                    <li><i className="fas fa-trophy"></i> <strong>Max rating: </strong>{ratings.leetcode.max}</li>
+                    <li><i className="fas fa-chart-line"></i> <strong>Current rating: </strong> {ratings.leetcode.current}</li>
+                    <li><i className="fas fa-star"></i> <strong>Title: </strong> {titles.leetcode}</li>
                   </ol>
                 </figcaption>
-                <img
+                {/* <img
                   decoding="async"
                   src="/assets/portfolio/leetcode_logo.png"
                   alt="Project"
-                />
+                /> */}
+                <div className='rating_graph'>
+                  <RatingGraphCustom platform='leetcode' />
+                </div>
               </figure>
             </li>
             <li>
               <figure>
                 <figcaption>
-                  <h3 className="m-0">ATCODER PROFILE</h3>
+                <div className='slide_title'>
+                    <img
+                      className='title_logo'
+                      decoding="async"
+                      src="/assets/portfolio/atcoder_jp.png"
+                      alt="atcoder"
+                    />
+                    <h3 className="m-0 title_name">ATCODER PROFILE</h3>
+                    <a href="https://atcoder.jp/users/manojkumar2412" target="_blank" rel="noopener noreferrer" onClick={handleClick}>
+                      <i className="fas fa-external-link-alt redirect_icon"></i>
+                    </a>
+                  </div>
                   <ol className="more-info">
                     <li><i className="fas fa-user"></i> <strong>Username: </strong> manojkumar2412</li>
-                    <li><i className="fas fa-trophy"></i> <strong>Max rating: </strong> 862</li>
-                    <li><i className="fas fa-chart-line"></i> <strong>Current rating: </strong> 862</li>
-                    <li><i className="fas fa-star"></i> <strong>Title: </strong> 6-kyu</li>
+                    <li><i className="fas fa-trophy"></i> <strong>Max rating: </strong> {ratings.atcoder.current}</li>
+                    <li><i className="fas fa-chart-line"></i> <strong>Current rating: </strong> {ratings.atcoder.current}</li>
+                    <li><i className="fas fa-star"></i> <strong>Title: </strong> {titles.atcoder}</li>
                   </ol>
                 </figcaption>
-                <img
+                {/* <img
                   decoding="async"
                   src="/assets/portfolio/atcoder_logo.png"
                   alt="Project"
-                />
+                /> */}
+                <div className='rating_graph'>
+                  <RatingGraphCustom platform='atcoder' />
+                </div>
               </figure>
             </li>
             <li>
               <figure className="project-figure">
               <figcaption>
-                    <h3 className="m-0">AGROCULTURE PROJECT</h3>
+                    <div className='slide_title'>
+                      <h3 className="m-0 title_name">AGROCULTURE PROJECT</h3>
+                      <a href="https://github.com/Manojkumar241202/Agroculture" target="_blank" rel="noopener noreferrer" onClick={handleClick}>
+                        <i className="fas fa-external-link-alt redirect_icon"></i>
+                      </a>
+                    </div>
+                    
                     <ol className="more-info project-details">
                         <li><i className="fas fa-leaf"></i> <strong>Focus: </strong> Eliminating Intermediaries in Agriculture</li>
                         <li><i className="fas fa-calendar-alt"></i> <strong>Timeline: </strong> AUG 2022 - NOV 2022</li>
@@ -119,7 +270,13 @@ const SlideshowGallery = ({current_index=0}) => {
             <li>
             <figure className="project-figure">
               <figcaption>
-                    <h3 className="m-0">GPT-CLONE PROJECT</h3>
+                    <div className='slide_title'>
+                      <h3 className="m-0 title_name">GPT-CLONE PROJECT</h3>
+                      <a href="https://github.com/Manojkumar241202/GPT-clone" target="_blank" rel="noopener noreferrer" onClick={handleClick}>
+                        <i className="fas fa-external-link-alt redirect_icon"></i>
+                      </a>
+                    </div>
+                    
                     <ol className="more-info project-details">
                         <li><i className="fas fa-leaf"></i> <strong>Focus: </strong> AI-Powered Chatbot with PDF Information Retrieval</li>
                         <li><i className="fas fa-calendar-alt"></i> <strong>Timeline: </strong>SEP 2023 - OCT 2023</li>

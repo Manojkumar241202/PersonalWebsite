@@ -11,38 +11,59 @@ const About = () => {
   const experience_grid= useRef(null);
   const [experience_grid_columns, set_experience_grid_columns] = useState(0);
 
-  const initialize_ratings_form_session= (rating_platform) =>{
-    const saved_ratings = sessionStorage.getItem(rating_platform);
-    return saved_ratings ? JSON.parse(saved_ratings) : "loading";
-  }
-  const [codechef_rating, set_codechef_rating]= useState(initialize_ratings_form_session("codechef_ratings"));
-  const [codeforces_rating, set_codeforces_rating]= useState(initialize_ratings_form_session("codeforces_ratings"));
-  const [leetcode_rating, set_leetcode_rating]= useState(initialize_ratings_form_session("leetcode_ratings"));
-  const [atcoder_rating, set_atcoder_rating]= useState(initialize_ratings_form_session("atcoder_ratings"));
+  const [codechef_rating, set_codechef_rating]= useState(-1);
+  const [codeforces_rating, set_codeforces_rating]= useState(-1);
+  const [leetcode_rating, set_leetcode_rating]= useState(-1);
+  const [atcoder_rating, set_atcoder_rating]= useState(-1);
 
 
 
-  const fetchRatings= (platform, setValue, session_key)=>{
-    axios.get("/ratings")
-    .then(response => {
-      const rating= response.data.data["resources"][platform]["highest"]["value"];
-      const round_off_rating= Math.floor(rating/100)*100;
-      setValue(round_off_rating);
-      sessionStorage.setItem(session_key, JSON.stringify(round_off_rating))
-      console.log(`${platform}: ` + round_off_rating);
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    });
-  };
+
   
 
-  useEffect(()=>{
-    fetchRatings("codeforces.com", set_codeforces_rating, "codeforces_ratings");
-    fetchRatings("codechef.com", set_codechef_rating, "codechef_ratings");
-    fetchRatings("leetcode.com", set_leetcode_rating, "leetcode_ratings");
-    fetchRatings("atcoder.jp", set_atcoder_rating, "atcoder_ratings");
+  useEffect(() => {
+    const fetchRatings = async () => {  // Declare as async
+      let ratings = {};
+  
+      // Check if ratings exist in sessionStorage
+      if (sessionStorage.getItem("ratings")) {
+        ratings = JSON.parse(sessionStorage.getItem("ratings"));
+      } else {
+        try {
+          const response = await axios.get("/ratings");  // Await the API call
+          ratings = response.data;  // Store response data
+          sessionStorage.setItem("ratings", JSON.stringify(response.data));  // Save to sessionStorage
+        } catch (error) {
+          console.error('Error fetching ratings:', error);  // Handle errors
+          return;  // Exit if there's an error
+        }
+      }
+  
+      // Extract and set ratings
+      try {
+        let rating = ratings["resources"]["codechef.com"]["highest"]["value"];
+        let round_off_rating = Math.floor(rating / 100) * 100;
+        set_codechef_rating(round_off_rating);
+  
+        rating = ratings["resources"]["codeforces.com"]["highest"]["value"];
+        round_off_rating = Math.floor(rating / 100) * 100;
+        set_codeforces_rating(round_off_rating);
+  
+        rating = ratings["resources"]["leetcode.com"]["highest"]["value"];
+        round_off_rating = Math.floor(rating / 100) * 100;
+        set_leetcode_rating(round_off_rating);
+  
+        rating = ratings["resources"]["atcoder.jp"]["highest"]["value"];
+        round_off_rating = Math.floor(rating / 100) * 100;
+        set_atcoder_rating(round_off_rating);
+      } catch (e) {
+        console.error('Error processing ratings:', e);  // Handle errors during processing
+      }
+    };
+  
+    fetchRatings();  // Call the async function
   }, []);
+  
 
   useEffect(() => {
     if (experience_grid.current) {

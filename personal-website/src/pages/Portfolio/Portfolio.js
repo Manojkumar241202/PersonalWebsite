@@ -45,7 +45,6 @@ const DirectionAwareHover = ({setSlideshowImage}) => {
     Item_6 : "https://github.com/Manojkumar241202/Voting_management_system" 
   };
   const handleClick = (item) => {
-    console.log(items[item], item);
     const keysArray = Object.keys(items);
     const itemIndex= keysArray.indexOf(item);
     setSlideshowImage(itemIndex);
@@ -114,16 +113,17 @@ const DirectionAwareHover = ({setSlideshowImage}) => {
 
 const Portfolio= ()=>{
   const [slideshowImage, setSlideshowImage] = useState(null); 
-  // useEffect(() => {
-    // Create an interval to check sessionStorage every second (1000 ms)
-  //   const interval = setInterval(() => {
-  //     const isSlideshowClosed = sessionStorage.getItem('slideshowClosed');
-  //     if (isSlideshowClosed === 'true') {
-  //       setSlideshowImage(null);
-  //     }
-  //   }, 500);
-  //   return () => clearInterval(interval);
-  // }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const isSlideshowClosed = sessionStorage.getItem('slideshowClosed');
+      if (isSlideshowClosed === 'true') {
+        setSlideshowImage(null);
+      }
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className='portfolio'>
       <Preloader/>

@@ -1,8 +1,5 @@
  
 ;( function( window ) {
-	
-	'use strict';
-  // self._openSlideshow( 0 );
   function classReg( className ) {
     return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
   }
@@ -62,19 +59,43 @@
     window.classie = classie;
   }
   
-	var docElem = window.document.documentElement,
-		transEndEventNames = {
-			'WebkitTransition': 'webkitTransitionEnd',
-			'MozTransition': 'transitionend',
-			'OTransition': 'oTransitionEnd',
-			'msTransition': 'MSTransitionEnd',
-			'transition': 'transitionend'
-		},
-		transEndEventName = "transitionend",
-		support = {
-			transitions : true,
-			support3d : true
-		};
+  var docElem = window.document.documentElement,
+  transEndEventNames = {
+	  'WebkitTransition': 'webkitTransitionEnd',
+	  'MozTransition': 'transitionend',
+	  'OTransition': 'oTransitionEnd',
+	  'msTransition': 'MSTransitionEnd',
+	  'transition': 'transitionend'
+  },
+  transEndEventName = null, // Initialize to null
+
+	support = {
+		transitions: false,
+		support3d: false
+	};
+
+	// Check if the browser supports transitions
+	for (var t in transEndEventNames) {
+	if (docElem.style[t] !== undefined) {
+		transEndEventName = transEndEventNames[t];
+		support.transitions = true;
+		break;
+	}
+	}
+
+	// Check for 3D transform support
+	var testEl = document.createElement('p');
+	testEl.style.transform = 'translate3d(0.0625rem,0.0625rem,0.0625rem)';
+	document.body.appendChild(testEl);
+	var computedStyle = window.getComputedStyle(testEl);
+	support.support3d = computedStyle.transform !== undefined && computedStyle.transform !== 'none';
+	document.body.removeChild(testEl);
+
+	// Example of setting these dynamically in the DOM
+	console.log('Transition end event name: ', transEndEventName);
+	console.log('Support transitions: ', support.transitions);
+	console.log('Support 3D: ', support.support3d);
+
 
 	function setTransform( el, transformStr ) {
 		el.style.WebkitTransform = transformStr;
@@ -130,14 +151,8 @@
 		this.ctrlPrev = this.el.querySelector( 'section.slideshow > nav > span.nav-prev' );
 		this.ctrlNext = this.el.querySelector( 'section.slideshow > nav > span.nav-next' );
 		this.ctrlClose = this.el.querySelector( 'section.slideshow > nav > span.nav-close' );
-		// init masonry grid
-		this._initMasonry();
 		// init events
 		this._initEvents();
-	};
-
-	CBPGridGallery.prototype._initMasonry = function() {
-		var grid = this.grid;
 	};
 
 	CBPGridGallery.prototype._initEvents = function() {
@@ -173,19 +188,21 @@
 					case 27:
 						self._closeSlideshow();
 						break;
+					default:
+						break;
 				}
 			}
 		} );
-
 		// trick to prevent scrolling when slideshow is visible
-		window.addEventListener( 'scroll', function() {
-			if ( self.isSlideshowVisible ) {
-				window.scrollTo( self.scrollPosition ? self.scrollPosition.x : 0, self.scrollPosition ? self.scrollPosition.y : 0 );
-			}
-			else {
-				self.scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
-			}
-		});
+		// window.addEventListener( 'scroll', function() {
+		// 	if ( self.isSlideshowVisible ) {
+		// 		window.scrollTo( self.scrollPosition ? self.scrollPosition.x : 0, self.scrollPosition ? self.scrollPosition.y : 0 );
+		// 	}
+		// 	else {	
+		// 		self.scrollPosition = { x : window.scrollX || docElem.scrollLeft, y : window.scrollY || docElem.scrollTop };
+		// 		window.scrollTo( self.scrollPosition ? self.scrollPosition.x : 0, self.scrollPosition ? self.scrollPosition.y : 0 );
+		// 	}
+		// });
 	};
 
 	CBPGridGallery.prototype._openSlideshow = function( pos ) {
@@ -207,14 +224,14 @@
 		// position previous item on the left side and the next item on the right side
 		if( this.prevItem ) {
 			classie.addClass( this.prevItem, 'show' );
-			var translateVal = this.getLeftTransform(this.prevItem);;
+			let translateVal = this.getLeftTransform(this.prevItem);;
 			                   
-			setTransform( this.prevItem, support.support3d ? 'translate3d(' + translateVal + 'px, 0, -150px)' : 'translate(' + translateVal + 'px)' );
+			setTransform( this.prevItem, support.support3d ? 'translate3d(' + translateVal + 'px, 0, -9.375rem)' : 'translate(' + translateVal + 'px)' );
 		}
 		if( this.nextItem ) {
 			classie.addClass( this.nextItem, 'show' );
-			var translateVal = this.getRightTransform(this.nextItem);;
-			setTransform( this.nextItem, support.support3d ? 'translate3d(' + translateVal + 'px, 0, -150px)' : 'translate(' + translateVal + 'px)' );
+			let translateVal = this.getRightTransform(this.nextItem);;
+			setTransform( this.nextItem, support.support3d ? 'translate3d(' + translateVal + 'px, 0, -9.375rem)' : 'translate(' + translateVal + 'px)' );
 		}
 	};
   CBPGridGallery.prototype.getLeftTransform= function(el){
@@ -227,7 +244,7 @@
   } ;
 	CBPGridGallery.prototype._navigate = function( dir ) {
 		if( this.isAnimating ) return;
-		if( dir === 'next' && this.current === this.itemsCount - 1 ||  dir === 'prev' && this.current === 0  ) {
+		if( (dir === 'next' && this.current === this.itemsCount - 1) ||  (dir === 'prev' && this.current === 0)  ) {
 			this._closeSlideshow();
 			return;
 		}
@@ -240,25 +257,25 @@
 		var self = this,
 			itemWidth = this.currentItem.offsetWidth,
 			// positions for the centered/current item, both the side items and the incoming ones
-			transformLeftStr = support.support3d ? 'translate3d('+ this.getLeftTransform(this.currentItem) + 'px, 0, -150px)' : 'translate(-' + Number( getViewportW() / 2 + itemWidth / 2 - 100 ) + 'px)',
-			transformRightStr = support.support3d ? 'translate3d(' + this.getRightTransform(this.currentItem) + 'px, 0, -150px)' : 'translate(' + Number( getViewportW() / 2 + itemWidth / 2 ) + 'px)',
+			transformLeftStr = support.support3d ? 'translate3d('+ this.getLeftTransform(this.currentItem) + 'px, 0, -9.375rem)' : 'translate(-' + Number( getViewportW() / 2 + itemWidth / 2 - 100 ) + 'px)',
+			transformRightStr = support.support3d ? 'translate3d(' + this.getRightTransform(this.currentItem) + 'px, 0, -9.375rem)' : 'translate(' + Number( getViewportW() / 2 + itemWidth / 2 ) + 'px)',
 			transformCenterStr = '', transformOutStr, transformIncomingStr,
 			// incoming item
 			incomingItem;
 
 		if( dir === 'next' ) {
-			transformOutStr = support.support3d ? 'translate3d( -' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -150px )' : 'translate(-' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px)';
-			transformIncomingStr = support.support3d ? 'translate3d( ' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -150px )' : 'translate(' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px)';
+			transformOutStr = support.support3d ? 'translate3d( -' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -9.375rem )' : 'translate(-' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px)';
+			transformIncomingStr = support.support3d ? 'translate3d( ' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -9.375rem )' : 'translate(' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px)';
 		}
 		else {
-			transformOutStr = support.support3d ? 'translate3d( ' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -150px )' : 'translate(' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px)';
-			transformIncomingStr = support.support3d ? 'translate3d( -' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -150px )' : 'translate(-' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px)';
+			transformOutStr = support.support3d ? 'translate3d( ' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -9.375rem )' : 'translate(' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px)';
+			transformIncomingStr = support.support3d ? 'translate3d( -' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px, 0, -9.375rem )' : 'translate(-' + Number( (getViewportW() * 2) / 2 + itemWidth / 2 ) + 'px)';
 		}
 
 		// remove class animatable from the slideshow grid (if it has already)
 		classie.removeClass( self.slideshow, 'animatable' );
 
-		if( dir === 'next' && this.current < this.itemsCount - 2 || dir === 'prev' && this.current > 1 ) {
+		if(( dir === 'next' && this.current < this.itemsCount - 2) || (dir === 'prev' && this.current > 1) ) {
 			// we have an incoming item!
 			incomingItem = this.slideshowItems[ dir === 'next' ? this.current + 2 : this.current - 2 ];
 			setTransform( incomingItem, transformIncomingStr );
@@ -338,7 +355,6 @@
 		classie.removeClass( this.el, 'slideshow-open' );
 		// remove class animatable from the slideshow grid
 		classie.removeClass( this.slideshow, 'animatable' );
-
 		var self = this,
 			onEndTransitionFn = function( ev ) {
 				if( support.transitions ) {
@@ -403,12 +419,12 @@
 		if ( this.isSlideshowVisible ) {
 			// update width value
 			if( this.prevItem ) {
-				var translateVal = Number( -1 * ( getViewportW() / 2 + this.prevItem.offsetWidth / 2 ) );
-				setTransform( this.prevItem, support.support3d ? 'translate3d(' + translateVal + 'px, 0, -150px)' : 'translate(' + translateVal + 'px)' );
+				let translateVal = Number( -1 * ( getViewportW() / 2 + this.prevItem.offsetWidth / 2 ) );
+				setTransform( this.prevItem, support.support3d ? 'translate3d(' + translateVal + 'px, 0, -9.375rem)' : 'translate(' + translateVal + 'px)' );
 			}
 			if( this.nextItem ) {
-				var translateVal = Number( getViewportW() / 2 + this.nextItem.offsetWidth / 2 );
-				setTransform( this.nextItem, support.support3d ? 'translate3d(' + translateVal + 'px, 0, -150px)' : 'translate(' + translateVal + 'px)' );
+				let translateVal = Number( getViewportW() / 2 + this.nextItem.offsetWidth / 2 );
+				setTransform( this.nextItem, support.support3d ? 'translate3d(' + translateVal + 'px, 0, -9.375rem)' : 'translate(' + translateVal + 'px)' );
 			}
 		}
 	}

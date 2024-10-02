@@ -32,7 +32,7 @@ const IconComponent = ({ iconClass, label, isActive }) => {
       data-label= {label}
     >
       <i className={iconClass}></i>
-      <span ref={spanRef} style={{ position: 'absolute', visibility: 'hidden', fontSize: '16px' }}>
+      <span ref={spanRef} style={{ position: 'absolute', visibility: 'hidden', fontSize: '1rem' }}>
         {label}
       </span>
       

@@ -39,6 +39,7 @@
     flex-direction: column;
     border-color: blue;
     line-height: 2.1875rem;
+    max-width: 50%;
 }
 .intro{
     display: flex;
@@ -75,7 +76,6 @@
 
 .description{
   display: flex;
-  max-width: 46.875rem;
   color: #666;
   font-size: 1.25rem;
   font-family: "Poppins", sans-serif;

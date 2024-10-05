@@ -24,7 +24,7 @@ const RatingGraphCustom = ({ platform = 'codeforces'}) => {
           ratings= JSON.parse(sessionStorage.getItem(`ratings`));
         }
         else{
-          const response = await axios.get('/ratings');
+          const response = await axios.get('/api/ratings');
           ratings= response.data;
           sessionStorage.setItem(`ratings`,JSON.stringify(response.data));
         }

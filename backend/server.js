@@ -1,12 +1,16 @@
 const express = require('express');
+require('dotenv').config();
+const path = require('path');
 const axios = require('axios');
 const cors = require('cors');  
 const admin = require('firebase-admin');
-const serviceAccount = require('./firebase_creds.json'); // Replace with the correct path
-const fs = require('fs/promises'); // Using fs/promises for promise-based file system
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://personal-website-40d06-default-rtdb.asia-southeast1.firebasedatabase.app/',
+  credential: admin.credential.cert({
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'), // Handle newline characters
+    clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+  }),
+  databaseURL: "https://personal-website-40d06-default-rtdb.asia-southeast1.firebasedatabase.app/"
 });
 
 const CODING_PLATFORMS = Object.freeze({
@@ -19,15 +23,15 @@ const CODING_PLATFORMS = Object.freeze({
 const db = admin.firestore();
 const app = express();
 const rdb = admin.database();
-const port = 3001;
+const port = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-
+app.use(express.static(path.join(__dirname, './build')));
 
 
 // Define a route to retrieve data from Realtime Database
-app.get('/titles', async (req, res) => {
+app.get('/api/titles', async (req, res) => {
   console.log('Incoming request to /titles');
 
   try {
@@ -55,7 +59,7 @@ app.get('/titles', async (req, res) => {
   }
 });
 
-app.post('/save_ratings', async (req, res) => {
+app.post('/api/save_ratings', async (req, res) => {
   try {
     // Fetch the ratings from the external API
     const rating_obj = await axios.get('https://clist.by/coder/manojkumar2412/ratings/');
@@ -99,7 +103,7 @@ app.post('/save_ratings', async (req, res) => {
   }
 });
 
-app.get('/ratings', async (req, res) => {
+app.get('/api/ratings', async (req, res) => {
   try {
     // Retrieve the document from Firestore
     const docRef = db.collection('ratings').doc("ratings");
@@ -120,7 +124,7 @@ app.get('/ratings', async (req, res) => {
   }
 });
 
-app.get('/rating_graph/:platform', async (req, res) => {
+app.get('/api/rating_graph/:platform', async (req, res) => {
   const platformParam = req.params.platform.toUpperCase(); // get platform from path parameter and convert to uppercase
 
   // Find the matching platform from CODING_PLATFORMS
@@ -152,7 +156,7 @@ app.get('/rating_graph/:platform', async (req, res) => {
   }
 });
 
-app.post('/save_message', async (req, res) => {
+app.post('/api/save_message', async (req, res) => {
   const { email, name, subject, message } = req.body;
   if (!email || !name || !subject || !message) {
     console.log("save_message- All fields are required");
@@ -173,6 +177,11 @@ app.post('/save_message', async (req, res) => {
     console.log("save_message- Error adding message: "+ error.message );
     res.status(500).json({ error: 'Error adding message: ' + error.message });
   }
+});
+
+// Catch-all route to serve the React app for all other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './build', 'index.html'));
 });
 
 

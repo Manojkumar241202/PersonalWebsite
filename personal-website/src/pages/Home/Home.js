@@ -13,7 +13,7 @@ const Home = () => {
         if(sessionStorage.getItem("ratings")){
           return;
         }
-        const response = await axios.get("/ratings");
+        const response = await axios.get("/api/ratings");
         if (response.data.resources) {
           sessionStorage.setItem("ratings", JSON.stringify(response.data));
   
@@ -30,7 +30,7 @@ const Home = () => {
         if(sessionStorage.getItem("titles")){
           return;
         }
-        const response = await axios.get("/titles");
+        const response = await axios.get("/api/titles");
         if (response.data) {
           sessionStorage.setItem("titles", JSON.stringify(response.data));
   
@@ -59,7 +59,7 @@ const Home = () => {
             </h1>
           </div>
           <div className='description'>
-            <p>A software engineer is a professional who applies principles of computer science, engineering, and mathematics to Their role is critical in the ever-evolving digital landscape, driving innovation and technological advancement.</p>
+            <p>My journey into the tech world began in my third year of college, where I started an internship at nference. After completing my final year, I transitioned into a full-time role as a software engineer. Enthusiastic about learning new things, especially algorithms, and enjoying coding contests on CodeChef, Codeforces, and LeetCode.</p>
           </div>
             <NavLink to="/about-me" style={{ textDecoration: 'none',  display: 'flex' }}>
               <SwipeButton button_text="MORE ABOUT ME" icon='fas fa-arrow-right'/>

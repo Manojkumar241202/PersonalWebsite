@@ -228,7 +228,7 @@ const SlideshowGallery = ({current_index=0}) => {
                   </div>
                   <ol className="more-info">
                     <li><i className="fas fa-user"></i> <strong>Username: </strong> manojkumar2412</li>
-                    <li><i className="fas fa-trophy"></i> <strong>Max rating: </strong> {ratings.atcoder.current}</li>
+                    <li><i className="fas fa-trophy"></i> <strong>Max rating: </strong> {ratings.atcoder.max}</li>
                     <li><i className="fas fa-chart-line"></i> <strong>Current rating: </strong> {ratings.atcoder.current}</li>
                     <li><i className="fas fa-star"></i> <strong>Title: </strong> {titles.atcoder}</li>
                   </ol>

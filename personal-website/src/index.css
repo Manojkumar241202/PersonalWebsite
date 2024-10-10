@@ -15,3 +15,35 @@ code {
 :root{
   --common-primary-color: #ffb400;
 }
+
+
+
+@media (min-width: 1700px) {
+  html {
+    font-size: 19px; /* Increase the base font size to scale up layout */
+  }
+}
+@media (min-width: 1825px) {
+  html {
+    font-size: 20px; /* Increase the base font size to scale up layout */
+  }
+}
+
+@media (min-width: 1924px) {
+  html {
+    font-size: 21px; /* Increase the base font size to scale up layout */
+  }
+}
+
+
+@media (min-width: 2000px) {
+  html {
+    font-size: 23px; /* Increase the base font size to scale up layout */
+  }
+}
+
+@media (min-width: 2150px) {
+  html {
+    font-size: 25px; /* Increase the base font size to scale up layout */
+  }
+}

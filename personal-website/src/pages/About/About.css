@@ -6,7 +6,7 @@
 }
 
 /* .infos > div {
-    border: 0.125rem solid #000;
+    border: 2px solid #000;
 } */
 .infos{
   display: flex;
@@ -18,7 +18,7 @@
 }
 
 .personal_infos h2{
-  font-size: 1.625rem;
+  font-size: 1.763vw;
   font-weight: 700;
 }
 .personal_infos span{
@@ -27,16 +27,16 @@
   opacity: 1;
 }
 .personal_infos, .ratings{
-    padding-top: 0rem;
+    padding-top: 0px;
     flex: 1 1 48%; /* Each inner container takes up 48% of the flex container's width */
     box-sizing: border-box; /* Include padding and border in element's total width and height */
     /* background-color: #f0f0f0; */
-    /* border: 0.125rem solid #000;  */
+    /* border: 2px solid #000;  */
 }
 .personal_infos ul{
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns layout */
-    gap: 0.3125rem; /* Space between grid items */
+    gap: 0.339vw; /* Space between grid items */
     list-style-type: none; /* Remove default list styles */
     padding: 0; /* Remove default padding */
     margin: 0; /* Remove default margin */
@@ -45,11 +45,11 @@
 .ratings ul{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.625rem;
+  gap: 0.678vw;
   list-style-type: none;
 }
 .ratings h3{
-  font-size: 2.5rem;
+  font-size: 2.712vw;
   padding: 0%;
   margin: 0%;
   display: inline-block;
@@ -59,39 +59,40 @@
 }
 .ratings span {
   content: '+';
-  right: -1.5rem;
+  right: -1.627vw;
   color: var(--common-primary-color);
-  font-size: 2.0625rem;
+  font-size: 2.237vw;
   font-weight: 300;
-  top: 0.125rem;
+  top: 0.287vh;
 }
 .ratings li{
-  border: 0.0625rem solid #ddd;
-  padding-left: 1.25rem;
+  border: 1px solid #ddd;
+  padding-left: 1.356vw;
   
 }
 .ratings p::before{
   content: "";
   display: inline-block;
-  width: 1.25rem;   /* Adjust the width to your desired dash length */
-  height: 0.125rem;   /* Adjust the height to your desired dash thickness */
+  width: 1.356vw;   /* Adjust the width to your desired dash length */
+  height: 0.287vh;   /* Adjust the height to your desired dash thickness */
   background-color: #666; /* Set the color of the dash */
-  margin-right: 0.3125rem;
+  margin-right: 0.339vw;
   vertical-align: middle; /* Align the dash with the text */
 }
 .ratings p{
-  padding-left: 1.5625rem;
-  text-indent: -1.5625rem;
+  padding-left: 1.695vw;
+  text-indent: -1.695vw;
 }
 .personal_infos li {
-    padding: 0.625rem;
-    padding-top: 0rem;
+    padding: 0.678vw;
+    padding-top: 0px;
+    padding-bottom: 1.437vh;
     color: rgba(102, 102, 102, 0.8); 
 }
 
 .personal_infos .download_button{
   display: flex;
-  padding-top: 0.625rem;
+  padding-top: 1.437vh;
 }
 
 .personal_infos a{
@@ -102,14 +103,14 @@
   width: 80%;
   height: auto;
   color: #666;
-  margin-top: 1.25rem;
-  margin-bottom: 3.75rem;
+  margin-top: 2.874vh;
+  margin-bottom: 8.621vh;
 }
 
 .experience h2 {
   color: #666;
   text-align: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 2.874vh;
 }
 
 .experience-list {
@@ -118,29 +119,32 @@
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
+  gap: 1.356vw;
 }
 
 .experience-item {
-  justify-self: center; /* Center horizontally */
+  justify-self: start; /* Center horizontally */
   align-self: center; /* Center vertically */
   width: auto;
   height: auto;
   display: flex;
-  padding: 0.625rem;
+  padding: 1.437vh 0.678vw 1.437vh 0.678vw;
   position: relative;
-  min-height: 12.5rem;
+  min-height: 28.736vh;
+  width: 37.288vw;
+  font-size: 1.085vw;
+  /* border: 1px solid black; */
   /* box-sizing: border-box; */
-  border-radius: 0.5rem;
-  box-shadow: 0rem 0rem 0.25rem rgba(47, 47, 47, 0.2);
+  border-radius: 1.149vh 0.542vw 1.149vh 0.542vw;
+  box-shadow: 0px 0px 0.271vw rgba(47, 47, 47, 0.2);
 }
 .experience-item::before{
   content: "";
-  top: 0.625rem;
+  top: 1.437vh;
   position: absolute;
   bottom: 0;
-  left:2.1875rem;  
-  border-left: 0.0625rem solid #d0cdcd;
+  left:2.373vw;  
+  border-left: 0.068vw solid #d0cdcd;
 }
 
 .experience-info{
@@ -150,42 +154,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 3.125rem;
-  height: 3.125rem;
+  width: 3.39vw;
+  height: 7.184vh;
   border-radius: 50%;
   background-color: var(--common-primary-color);
-  margin-right: 0.9375rem;
+  margin-right: 1.017vw;
   z-index: 1;
 }
 
 .icon i {
   color: white;
-  font-size: 1.25rem;
+  font-size: 1.356vw;
 }
 
 .experience-info .time {
   display: inline-block;
   background-color: #e5e3e3;
-  border-radius: 1.5625rem;
-  padding: 0.3125rem 0.625rem;
-  margin-bottom: 0.3125rem;
-  font-size: 0.75rem;
+  border-radius: 3.592vh 1.695vw 3.592vh 1.695vw;
+  padding: 0.718vh 0.678vw;
+  margin-bottom: 0.718vh;
   font-family: "Poppins", sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.949vw;
   color: #666;
 }
 
 ul .responsibilities, .projects, .projects h3{
   font-family: "Poppins", sans-serif;
   padding: 0;
-  margin-bottom: 0rem;
+  margin-bottom: 0px;
 }
 .responsibilities li{
-  margin-left: 1.875rem;
+  margin-left: 2.034vw;
 }
 .role {
   font-weight: 700;
-  font-size: 1.125rem;
+  font-size: 1.22vw;
   font-family: "Poppins", sans-serif;
   color: #666;
   margin: 0;
@@ -193,14 +196,14 @@ ul .responsibilities, .projects, .projects h3{
 
 .role span {
   /* font-weight: normal; */
-  font-size: 1rem;
+  font-size: 1.085vw;
   font-family: "Poppins", sans-serif;
   color: #666;
   opacity: 0.8;
 }
 
 
-@media (max-width: 37.5rem) {
+@media (max-width: 600px) {
   .infos {
     flex-direction: column; /* Stack the containers vertically on small screens */
   }

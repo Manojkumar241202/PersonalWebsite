@@ -8,6 +8,8 @@ import Preloader from '../../utils/preloader/Preloader';
 import axios from 'axios';
 const Home = () => {
   useEffect(() => {
+    console.log("width: "+ window.innerWidth);
+    console.log("height: "+ window.innerHeight);
     const fetchData = async () => {
       try {
         if(sessionStorage.getItem("ratings")){

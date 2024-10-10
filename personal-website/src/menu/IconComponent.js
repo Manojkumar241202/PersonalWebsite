@@ -15,7 +15,7 @@ const IconComponent = ({ iconClass, label, isActive }) => {
 
   const handleMouseOver = () => {
     //spanRef.current.offsetWidth -> gives pixel. so converting it to rem
-    setPaddingLeft(`${spanRef.current.offsetWidth/parseFloat(getComputedStyle(document.documentElement).fontSize)+ 1.5625}rem`);
+    setPaddingLeft((spanRef.current.offsetWidth / window.innerWidth) * 100 + (25 / window.innerWidth) * 100 + 'vw');
   };
 
   const handleMouseOut = () => {
@@ -32,7 +32,7 @@ const IconComponent = ({ iconClass, label, isActive }) => {
       data-label= {label}
     >
       <i className={iconClass}></i>
-      <span ref={spanRef} style={{ position: 'absolute', visibility: 'hidden', fontSize: '1rem' }}>
+      <span ref={spanRef} style={{ position: 'absolute', visibility: 'hidden', fontSize: '1.08vw' }}>
         {label}
       </span>
       

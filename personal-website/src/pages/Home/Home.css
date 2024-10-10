@@ -16,7 +16,7 @@
     align-items: center;
     z-index: 2;
     height: 98vh;
-    gap: 12.5rem;
+    gap: 13.559vw;
   }
   .profile{
     position: relative;
@@ -28,8 +28,8 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    border-radius: 1.875rem;
-    box-shadow: 0.3125rem 0 0.4375rem black;
+    border-radius: 30px;
+    box-shadow: 5px 0 7px black;
   }
 .home{
     position: relative;
@@ -38,7 +38,7 @@
     display: flex;
     flex-direction: column;
     border-color: blue;
-    line-height: 2.1875rem;
+    line-height: 5.029vh;
     max-width: 50%;
 }
 .intro{
@@ -50,33 +50,33 @@
 .name::before{
     display: inline-block;
     content: "";
-    height: 0.25rem;
-    width: 2.0625rem;
+    height: 0.575vh;
+    width: 2.237vw;
     background-color: var(--common-primary-color);
     vertical-align: middle;
-    margin-right: 0.3125rem;
+    margin-right: 0.339vw;
     transform: translateY(-50%);
   }
 .name span{
   display: block;
   color: #666;
-  margin-top: 1.25rem;
-  margin-left: 2.375rem;
+  margin-top: 2.874vh;
+  margin-left: 2.576vw;
 }
 .name{
     display: block;
     align-items: center;
-    margin-top: 0.4375rem;
+    margin-top: 1.006vh;
     color: var(--common-primary-color);
     font-family: "Poppins", sans-serif;
     font-weight: 700;
-    font-size: 3.1875rem;
+    font-size: 3.458vw;
     /* line-height: 8px; */
 }
 
 .description{
   display: flex;
   color: #666;
-  font-size: 1.25rem;
+  font-size: 1.356vw;
   font-family: "Poppins", sans-serif;
 }

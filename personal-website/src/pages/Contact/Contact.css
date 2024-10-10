@@ -1,4 +1,3 @@
-
 .contact_page{
     margin: 0 auto;
     display:flex;
@@ -9,168 +8,154 @@
     font-family: "Poppins", sans-serif;
   }
 
-  .details{
+.details{
     width: 35%;
     color: #666;
-  }
+}
   
-  .details .friendly_text{
-    line-height: 1.6875rem;
-  }
+.details .friendly_text{
+    line-height: 3.879vh;
+}
 
-  .details h2{
+.details h2{
     font-weight: 700;
     margin-top: 0;
-  }
-  .anchor{
+}
+.anchor{
     font-weight: 600;
     margin: 0;
-  }
-  .details h2{
+}
+.details h2{
     color: #666;
-  }
-  .mail_icon, .phone_icon{
+}
+.mail_icon, .phone_icon{
     display: flex;
-    font-size: 2.5rem;
+    font-size: 2.676vw;
     color: var(--common-primary-color);
-    padding-top: 0.375rem;
-    padding-right: 0.625rem;
-    
-  }
-  .phone_icon{
-    font-size: 2.8125rem;
-    padding-top: 0.125rem;
-    padding-right: 0.625rem;
-  }
+    padding-top: 0.5vh;
+    padding-right: 0.8vw;
+}
+.phone_icon{
+    font-size: 2.676vw;
+    padding-top: 0.2vh;
+    padding-right: 0.8vw;
+}
   
-  .mail{
+.mail{
     display: flex;
     align-items: row;
-  }
-  .mail_me{
+}
+.mail_me{
     display: flex;
     flex-direction: column;
-  }
+}
   
-  .mail_me > *{
+.mail_me > *{
     margin: 0;
-  }
+}
   
-  .phone{
+.phone{
     display: flex;
     align-items: row;
-    margin-top: 1.25rem;
-    
-  }
-  .call_me{
+    margin-top: 2vh;
+}
+.call_me{
     display: flex;
     flex-direction: column;
-  }
+}
   
-  .call_me > *{
+.call_me > *{
     margin: 0;
-  }
+}
   
-  .form-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 1.25rem;
-      /* display: grid;
-      grid-template-columns: repeat(3, 1fr); */
-  }
-  .form-row input{
-    margin-left:0.9375rem;
-  }
-  .form-control {
-      border: 0.0625rem solid #ddd;
-      border-radius: 1.875rem;
-      padding: 0.625rem 1.25rem;
-      /* width: 30%; */
-      font-size: 1rem;
-      outline: none;
-      transition: border 0.3s ease;
-      font-family: "Poppins", sans-serif;
-  }
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2vh;
+}
+
+.form-row input{
+    margin-left: 1.003vw;
+}
+
+.form-control {
+    border: 0.1vw solid #ddd;
+    border-radius: 2.5vw;
+    padding: 0.8vh 1.338vw;
+    font-size: 1.3vw;
+    outline: none;
+    transition: border 0.3s ease;
+    font-family: "Poppins", sans-serif;
+}
   
-  .form-control:focus {
-      border-color: var(--common-primary-color);
-  }
+.form-control:focus {
+    border-color: var(--common-primary-color);
+}
   
-  .message {
-      margin: 0.9375rem;
-      margin-bottom: 0;
-      width: 90%;
-      height: 9.375rem;
-      border-radius: 1.25rem;
-      resize: both;
-  }
+.message {
+    margin: 1.2vw;
+    margin-bottom: 0;
+    width: 90%;
+    height: 21.552vh;
+    border-radius: 1.6vw;
+    resize: both;
+}
   
 .send_me_button{
     display: flex;
-    font-size: 0.625rem;
-    margin: 0.9375rem;
+    font-size: 0.8vw;
+    margin: 1.2vw;
 }
-
-/* .input-row{
-  /* display: flex;
-  flex-direction: column;
-  display: block;
-  width:100%;
-} */
 
 .input-row {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 input, textarea{
-  color: #666;
+    color: #666;
 }
-
 
 .input-row .error-message{
-  padding:0 1.25rem;
-  color: #dc3232;
+    padding: 0 1.6vw;
+    color: #dc3232;
 }
 
-/**
- * Configuration.
- */
-/**
- * Buttons.
- */
- .button {
-  margin-bottom: 0.25rem;
-  padding: 0.5rem 0.75rem;
-  border: 0.0625rem solid #75B9E1;
-  border-radius: 0.1875rem;
-  background: #4FA0D0;
-  cursor: pointer;
-  font-family: inherit;
-  text-transform: uppercase;
-  /* cursor: pointer; */
-  color: #fff; }
-  .button:focus {
-    outline: none; }
-  .button--warning {
-    border: 0.0625rem solid #FFB039;
-    background: #ff9800; }
-  .button--success {
-    border: 0.0625rem solid #71E6AB;
-    background: #4AD890; }
-  .button--error {
-    border: 0.0625rem solid #F578A4;
-    background: #EF5289; }
+.button {
+    margin-bottom: 0.3vh;
+    padding: 0.6vh 1vw;
+    border: 0.1vw solid #75B9E1;
+    border-radius: 0.3vw;
+    background: #4FA0D0;
+    cursor: pointer;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: #fff; 
+}
+.button:focus {
+    outline: none;
+}
+.button--warning {
+    border: 0.1vw solid #FFB039;
+    background: #ff9800;
+}
+.button--success {
+    border: 0.1vw solid #71E6AB;
+    background: #4AD890;
+}
+.button--error {
+    border: 0.1vw solid #F578A4;
+    background: #EF5289;
+}
 
-/**
- * Popups.
- */
 .popup {
-  visibility: hidden;
-  transition: visibility 0ms linear 0.3s; }
-  .popup--visible {
+    visibility: hidden;
+    transition: visibility 0ms linear 0.3s; 
+}
+.popup--visible {
     visibility: visible;
-    transition: visibility 0ms; }
-  .popup__background {
+    transition: visibility 0ms; 
+}
+.popup__background {
     position: fixed;
     top: 0;
     left: 0;
@@ -179,93 +164,33 @@ input, textarea{
     width: 100%;
     background: rgba(0, 0, 0, 0.4);
     opacity: 0;
-    transition: opacity 0.3s ease-in-out; }
-    .popup--visible .popup__background {
-      opacity: 1; }
-  .popup__content {
+    transition: opacity 0.3s ease-in-out; 
+}
+.popup--visible .popup__background {
+    opacity: 1;
+}
+.popup__content {
     position: fixed;
     top: 50%;
     left: 50%;
     z-index: 10001;
-    min-width: 25rem;
-    padding: 1.5625rem 3.125rem;
+    min-width: 32vw;
+    padding: 2vh 4vw;
     background: #fff;
-    border: 0.0625rem solid #ddd;
-    border-radius: 0.1875rem;
+    border: 0.1vw solid #ddd;
+    border-radius: 0.3vw;
     text-align: center;
     animation: hide-popup 0.3s forwards;
-    /**
-		 * Popup types.
-		 */ }
-    .popup--visible .popup__content {
-      animation: show-popup 0.3s forwards; }
-    .popup--icon .popup__content {
-      padding-top: 8.125rem;
-      /**
-			 * Animations on opened popups.
-			 *
-			 * We need to prepend ".popup--visible" with no space to "&" to match the
-			 * an opened popup: ".popup--visible.popup--icon".
-			 *
-			 * Therefore we need the "at-root" function to break out of nesting as well as the
-			 * "selector-append" function to append parent selectors without space.
-			 *
-			 * Details:
-			 *  - https://css-tricks.com/the-sass-ampersand/
-			 *  - http://sass-lang.com/documentation/Sass/Script/Functions.html#selector_append-instance_method
-			 */
-      /**
-			 * Different popup icon styles
-			 *
-			 * E.g. selector for type question: ".popup--icon.-question" to match class="popup--icon -question"
-			 *
-			 * To have an easier selector in SCSS we use a little workaround and rearrange the selectors:
-			 *  ".-question.popup--icon" is also matching class="popup--icon -question"
-			 */ }
-      .popup--icon .popup__content:before, .popup--icon .popup__content:after {
-        position: absolute;
-        top: 1.5625rem;
-        left: 50%;
-        transform: translateX(-50%);
-        display: block;
-        height: 5.625rem;
-        width: 5.625rem; }
-      .popup--icon .popup__content:before {
-        content: '';
-        border: 0.1875rem solid currentColor;
-        border-radius: 50%;
-        transform: translateX(-50%) scale(1, 0);
-        opacity: 0; }
-      .popup--icon .popup__content:after {
-        content: '\2713';
-        line-height: 5.625rem;
-        font-size: 2.8125rem;
-        transform: translateX(-50%) scale(0);
-        opacity: 0; }
-      .popup--visible.popup--icon .popup__content:before {
-        animation: show-icon-cirlce 0.3s forwards 0.15s; }
-      .popup--visible.popup--icon .popup__content:after {
-        animation: show-icon 0.3s forwards 0.3s; }
-      .-question.popup--icon .popup__content:before {
-        border-color: #ff9800; }
-      .-question.popup--icon .popup__content:after {
-        content: '?';
-        color: #ff9800; }
-      .-success.popup--icon .popup__content:before {
-        border-color: #4AD890; }
-      .-success.popup--icon .popup__content:after {
-        content: '\2713';
-        color: #4AD890; }
-      .-error.popup--icon .popup__content:before {
-        border-color: #EF5289; }
-      .-error.popup--icon .popup__content:after {
-        content: '\2717';
-        color: #EF5289; }
-    .popup__content__title {
-      margin-bottom: 0.625rem;
-      font-size: 1.75rem;
-      font-weight: 100;
-      color: #626262; }
+}
+.popup--visible .popup__content {
+    animation: show-popup 0.3s forwards;
+}
+.popup__content__title {
+    margin-bottom: 0.8vh;
+    font-size: 2.3vw;
+    font-weight: 100;
+    color: #626262;
+}
 
 /**
  * Popup animations.

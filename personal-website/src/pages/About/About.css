@@ -68,7 +68,6 @@
 .ratings li{
   border: 0.0625rem solid #ddd;
   padding-left: 1.25rem;
-  border:1px solid black;
   
 }
 .ratings p::before{
@@ -131,7 +130,6 @@
   display: flex;
   padding: 0.625rem;
   position: relative;
-  border: 1px solid black;
   min-height: 12.5rem;
   /* box-sizing: border-box; */
   border-radius: 0.5rem;

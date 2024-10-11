@@ -22,6 +22,8 @@
     justify-content: center;
     width: 3.125rem;
     height: 3.125rem;
+    position: relative;
+    right: -0.0625rem;
     border-radius: 50%;
     color: white;
     background-color: var(--common-primary-color);

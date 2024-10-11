@@ -1,7 +1,6 @@
 // IconWrapper.jsx
 import React, { useState, useRef } from 'react';
 import './iconcomponent.css'
-import '@fortawesome/fontawesome-free/css/all.min.css';
 const IconComponent = ({ iconClass, label, isActive }) => {
   const [paddingLeft, setPaddingLeft] = useState(0);
   const spanRef = useRef(null);

@@ -8,7 +8,7 @@
     padding: 3.125rem;
     padding-top: 0rem;
     font-weight: 400;
-    font-family: Sans-Serif;
+    font-family: "Poppins", Sans-Serif;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -123,4 +123,27 @@ button{
 
 .thumbnail.time_and_space_complexity img{
   transform-origin: 100% 50%;
+}
+
+@media (max-width: 991px) {
+  .cards-container{
+    grid-template-columns: 1fr;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    padding-top: 1.875rem;
+    justify-items: center;
+    width: 100%;
+
+  }
+  .card{
+    max-width: 70vw;
+    box-shadow: 0.0625rem 0.0625rem 0.625rem 0rem rgba(0, 0, 0, 0.1),  /* bottom-right */
+    -0.0625rem -0.0625rem 0.625rem 0rem rgba(0, 0, 0, 0.1), /* top-left */
+    -0.0625rem 0.0625rem 0.625rem 0rem rgba(0, 0, 0, 0.1),  /* bottom-left */
+    0.0625rem -0.0625rem 0.625rem 0rem rgba(0, 0, 0, 0.1); 
+  }
+  .thumbnail img{
+    width: 100%;
+    height: 100%;
+  }
 }

@@ -24,13 +24,13 @@ const location = useLocation();
             <span style={transitionStyle}></span>
             <span style={transitionStyle}></span>
             <span style={transitionStyle}></span>
-            <div class="menu-mobile-menu-container">
+            <div className="menu-mobile-menu-container">
               <ul id="menu">
-                <NavLink to="/home" style={{ textDecoration: 'none' }}><li class={`menu-item ${isActiveRoute('/home')}`} onClick={handleMenuClick}><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></li></NavLink>
-                <NavLink to="/about-me" style={{ textDecoration: 'none'}}><li class={`menu-item ${isActiveRoute('/about-me')}`} onClick={handleMenuClick}><i class="fa fa-user" aria-hidden="true"></i><span>About Me</span></li></NavLink>
-                <NavLink to="/portfolio" style={{ textDecoration: 'none'}}><li class={`menu-item ${isActiveRoute('/portfolio')}`} onClick={handleMenuClick} ><i class="fa fa-briefcase" aria-hidden="true"></i><span>Works</span></li></NavLink>
-                <NavLink to="/contact" style={{ textDecoration: 'none'}}><li class={`menu-item ${isActiveRoute('/contact')}`} onClick={handleMenuClick} ><i class="fa fa-envelope" aria-hidden="true"></i><span>Contact</span></li></NavLink>
-                <NavLink to="/blogs" style={{ textDecoration: 'none' }}><li class={`menu-item ${isActiveRoute('/blogs')}`} onClick={handleMenuClick}><i class="fab fa-weixin" aria-hidden="true"></i><span>Blogs</span></li></NavLink>
+                <NavLink to="/home" style={{ textDecoration: 'none' }}><li className={`menu-item ${isActiveRoute('/home')}`} onClick={handleMenuClick}><i className="fa fa-home" aria-hidden="true"></i><span>Home</span></li></NavLink>
+                <NavLink to="/about-me" style={{ textDecoration: 'none'}}><li className={`menu-item ${isActiveRoute('/about-me')}`} onClick={handleMenuClick}><i className="fa fa-user" aria-hidden="true"></i><span>About Me</span></li></NavLink>
+                <NavLink to="/portfolio" style={{ textDecoration: 'none'}}><li className={`menu-item ${isActiveRoute('/portfolio')}`} onClick={handleMenuClick} ><i className="fa fa-briefcase" aria-hidden="true"></i><span>Works</span></li></NavLink>
+                <NavLink to="/contact" style={{ textDecoration: 'none'}}><li className={`menu-item ${isActiveRoute('/contact')}`} onClick={handleMenuClick} ><i className="fa fa-envelope" aria-hidden="true"></i><span>Contact</span></li></NavLink>
+                <NavLink to="/blogs" style={{ textDecoration: 'none' }}><li className={`menu-item ${isActiveRoute('/blogs')}`} onClick={handleMenuClick}><i className="fab fa-weixin" aria-hidden="true"></i><span>Blogs</span></li></NavLink>
               </ul>
             </div>            
           </div>

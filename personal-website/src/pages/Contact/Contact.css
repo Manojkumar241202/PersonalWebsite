@@ -309,3 +309,24 @@ input, textarea{
   100% {
     transform: translateX(-50%) scale(1, 1);
     opacity: 1; } }
+
+@media (max-width: 991px){
+  .contact_page{
+    flex-direction: column;
+    margin-top: 1.875rem;
+  }
+  .contact_page .details{
+    width: 80vw;
+  }
+  .contact_page .contact-form{
+    margin-top: 1.875rem;
+    width: 80vw;
+  }
+  .form-row .input-row{
+    margin-top: 0.9375rem;
+  }
+  .form-row{
+    flex-direction: column;
+    margin-bottom: 0rem;
+  }
+}

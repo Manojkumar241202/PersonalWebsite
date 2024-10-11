@@ -49,7 +49,6 @@ const Home = () => {
     <div className="home">
       <Preloader/>
       <div className= "bg-skew"></div>
-      {/* <img src={require("./profile.jpg")} alt="profile"></img> */}
       <div className= "home-content">
         <div className='profile' style= {{ backgroundImage: `url(${nobg_profile})`}}></div>
         <div className='home-details'>

@@ -1,11 +1,11 @@
 import SectionTitle from "../../utils/TitleSection";
 import "./Contact.css";
 import SwipeButton from "../../utils/SwipeButton";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Preloader from "../../utils/preloader/Preloader";
 import axios from 'axios';
-const Contact= () =>{
-
+const Contact= () =>{   
+    
     const initial_form_values = () => {
         const saved_formValues = sessionStorage.getItem("formValues");
         return saved_formValues ? JSON.parse(saved_formValues) : {
@@ -15,6 +15,7 @@ const Contact= () =>{
             message: '',
         };
     };
+
     const [isVisible, setIsVisible] = useState(false);
   
     const togglePopup = () => {
@@ -30,7 +31,9 @@ const Contact= () =>{
       subject: false,
       message: false,
   });
-
+  useEffect(() => {
+    sessionStorage.setItem("formValues", JSON.stringify(formValues));
+}, [formValues]);
   const handleFormValidation = () => {
       const { name, email, subject, message } = formValues;
 
@@ -83,7 +86,6 @@ const Contact= () =>{
           ...prevValues,
           [name]: value
       }));
-      sessionStorage.setItem("formValues", JSON.stringify(formValues))
   };
     return (
       <div className="contact-page">

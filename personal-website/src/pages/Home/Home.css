@@ -132,5 +132,6 @@
   .name span{
     margin: 0;
     margin-top: 0.9375rem;
+    line-height: 35px;
   }
 }

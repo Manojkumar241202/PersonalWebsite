@@ -137,6 +137,7 @@ button{
   }
   .card{
     max-width: 70vw;
+    height: auto;
     box-shadow: 0.0625rem 0.0625rem 0.625rem 0rem rgba(0, 0, 0, 0.1),  /* bottom-right */
     -0.0625rem -0.0625rem 0.625rem 0rem rgba(0, 0, 0, 0.1), /* top-left */
     -0.0625rem 0.0625rem 0.625rem 0rem rgba(0, 0, 0, 0.1),  /* bottom-left */

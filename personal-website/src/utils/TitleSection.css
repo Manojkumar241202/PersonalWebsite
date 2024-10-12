@@ -35,6 +35,14 @@
     color: rgba(30, 37, 48, 0.07);
 }
 
+
+
+@media (min-width: 2000px) {
+  .subtitle{
+    color:rgba(30, 37, 48, 0.11) ;
+  }
+}
+
 @media (max-width: 557px){
   .subtitle{
     display: none;

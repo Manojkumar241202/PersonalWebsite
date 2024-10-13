@@ -4,6 +4,7 @@ const path = require('path');
 const axios = require('axios');
 const cors = require('cors');  
 const admin = require('firebase-admin');
+const nodemailer = require('nodemailer');
 admin.initializeApp({
   credential: admin.credential.cert({
     projectId: process.env.FIREBASE_PROJECT_ID,
@@ -24,6 +25,14 @@ const db = admin.firestore();
 const app = express();
 const rdb = admin.database();
 const port = process.env.PORT || 3001;
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.FROM_EMAIL_USER,
+    pass: process.env.FROM_EMAIL_PASS 
+  }
+});
+
 app.use(cors());
 app.use(express.json());
 
@@ -156,6 +165,26 @@ app.get('/api/rating_graph/:platform', async (req, res) => {
   }
 });
 
+
+
+const notify = async (messageData) => {
+  console.log("email: "+ process.env.FROM_EMAIL_USER +" , pass: "+process.env.FROM_EMAIL_PASS);
+  const mailOptions = {
+    from: process.env.FROM_EMAIL_USER,
+    to: process.env.TO_EMAIL_USER,
+    subject: "Hey bro, you got a message from '"+ messageData.name +"': "+messageData.subject ,
+    text: messageData.message
+  };
+
+  try {
+    let info = await transporter.sendMail(mailOptions);
+    console.log('Notification email sent:', info.response);
+  } catch (error) {
+    console.error('Error sending notification email:', error);
+  }
+};
+
+
 app.post('/api/save_message', async (req, res) => {
   const { email, name, subject, message } = req.body;
   if (!email || !name || !subject || !message) {
@@ -170,6 +199,12 @@ app.post('/api/save_message', async (req, res) => {
       subject,
       message,
       timestamp: admin.firestore.FieldValue.serverTimestamp(),
+    });
+    notify({
+      email,
+      name,
+      subject,
+      message
     });
     console.log("save_message-Message successfully added, doc_id: " + docRef.id);
     res.status(201).json({ message: 'Message successfully added', id: docRef.id });

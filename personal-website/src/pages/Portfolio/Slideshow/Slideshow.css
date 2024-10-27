@@ -278,4 +278,7 @@
   .portfolio .slideshow figure figcaption ol{
     padding-left: 0.625rem;
   }
+  .chart-container{
+    height: 30vh;
+  }
 }

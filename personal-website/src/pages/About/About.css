@@ -210,11 +210,15 @@ ul .responsibilities, .projects, .projects h3{
     flex: 1 1 100%; /* Each container takes up 100% of the width on small screens */
   }
 
-  /* .personal_infos ul {
-    grid-template-columns: 1fr;
-  } */
   .experience-list{
     grid-template-columns: 1fr;
+  }
+  .experience-list .experience-item:nth-child(odd) {
+    order: 1;
+  }
+
+  .experience-list .experience-item:nth-child(even) {
+    order: 2;
   }
   .experience-list .experience-item{
     min-width: 80vw;

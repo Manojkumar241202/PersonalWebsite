@@ -325,6 +325,7 @@
   }
   .portfolio .slideshow ul{
     padding-left: 0;
+    margin-top:0rem;
   }
   .portfolio .slideshow ul > li:after {
     display: none;
@@ -339,7 +340,7 @@
 
   .portfolio .slideshow nav span.nav-prev,
   .portfolio .slideshow nav span.nav-next {
-    top: 2.1875rem;
+    top: 0.8125rem;
     width: 2rem;
     height: 2rem;
   }
@@ -370,6 +371,7 @@
     height: 2rem;
     display: block;
     line-height: 0;
+    top:0.8125rem;
   }
 
   .portfolio .slideshow nav span.nav-close img {

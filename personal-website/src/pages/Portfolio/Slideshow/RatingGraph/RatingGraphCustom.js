@@ -112,6 +112,7 @@ const RatingGraphCustom = ({ platform = 'codeforces'}) => {
         label: `${platform.charAt(0).toUpperCase() + platform.slice(1)} Rating`,  // Dynamic label based on platform
         data: ratingData.map(entry => ({ x: entry.date, y: entry["values"]["new_rating"] })),  // Map contest ratings
         borderColor: '#4bc0c0',
+        pointHoverRadius: 5,
         backgroundColor: function (context) {
           const chart = context.chart;
           const { ctx, chartArea } = chart;
@@ -138,10 +139,20 @@ const RatingGraphCustom = ({ platform = 'codeforces'}) => {
     ],
   };
 
+  const isSmallScreen = window.innerWidth <= 568;
+
   const options = {
     responsive: true,
+    maintainAspectRatio: !isSmallScreen,
+    interaction: {
+      intersect: false,
+      event: ["click", "onmousemove"],
+      mode: 'nearest',
+      axis: 'xy'
+    },
     plugins: {
       tooltip: {
+        enabled: true,
         footerColor: footerColor,
         // titleColor: "#ffb400",
         callbacks: {
@@ -150,7 +161,16 @@ const RatingGraphCustom = ({ platform = 'codeforces'}) => {
           label: () => '',
           footer: footer,
           enabled: false, // Disable the default tooltip
-        }
+        },
+        // external: (context) => {
+        //   const tooltipEl = context.tooltip?.el;
+        //   if (tooltipEl && context.chart.canvas) {
+        //     context.chart.canvas.addEventListener('mouseleave', () => {
+        //       context.tooltip.setActiveElements([], { x: 0, y: 0 });
+        //       context.chart.update();
+        //     });
+        //   }
+        // },
       },
       legend: {
         display: false
@@ -233,7 +253,7 @@ const RatingGraphCustom = ({ platform = 'codeforces'}) => {
     //   height: '500px',
     //   width: '1000px'
     // }}
-    <div >
+    <div className= "chart-container">
       <Line ref={chartRef} data={data} options={options} />
     </div>
   );

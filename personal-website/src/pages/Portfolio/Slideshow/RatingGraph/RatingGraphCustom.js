@@ -92,17 +92,23 @@ const RatingGraphCustom = ({ platform = 'codeforces'}) => {
   };
 
   // Function to determine gradient color based on the current rating
-  const getGradientColor = (rating) => {
+  const getFromGradientColor = (rating) => {
     if (rating < 1200) return 'grey';
     if (rating < 1400) return 'lightgreen';
     if (rating < 1600) return 'darkgreen';
     if (rating < 1800) return 'blue';
     if (rating < 2000) return 'purple';
-    if (rating < 2200) return 'yellow';
+    if (rating < 2200) return '#FFD700';
     if (rating < 2400) return 'darkyellow';
     if (rating < 2600) return 'red';
     if (rating < 3000) return 'darkred';
     return 'brown';
+  };
+
+  const getToGradientColor = (rating) => {
+    if (rating > 2000) return 'rgba(247, 240, 225, 0.6)';
+    return 'rgba(76, 161, 175, 0.1)';
+
   };
 
   const data = {
@@ -129,8 +135,8 @@ const RatingGraphCustom = ({ platform = 'codeforces'}) => {
           // Get the last rating (current rating)
           const currentRating = ratingData[ratingData.length - 1]["values"]["new_rating"];
           const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
-          gradient.addColorStop(0, getGradientColor(currentRating));
-          gradient.addColorStop(1, 'rgba(76, 161, 175, 0.1)');
+          gradient.addColorStop(0, getFromGradientColor(currentRating));
+          gradient.addColorStop(1, getToGradientColor(currentRating));
         
           return gradient;
         },

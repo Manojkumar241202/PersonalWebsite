@@ -1,19 +1,19 @@
-/*.portfolio .slideshow ul{*/
+/*.slideshow ul{*/
 /*  border: 0.3125rem black dotted;*/
 /*}*/
-/*.portfolio .slideshow ul > li{*/
+/*.slideshow ul > li{*/
 /*  border: 0.3125rem red dotted;*/
 /*}*/
 
-.portfolio .slideshow ul > li.show:not(.current){
+.slideshow ul > li.show:not(.current){
     border-radius: 0.625rem;
     background-color: rgb(255,255,255, 0.7);
     
   }
-  /* .page-wrapper.light-theme .portfolio .slideshow .show:not(.current) figure {
+  /* .page-wrapper.light-theme .slideshow .show:not(.current) figure {
     background-color: rgba(0,0,0,0);
   } */
-  .portfolio .slideshow {
+  .slideshow {
     position: fixed;
     background: rgba(0,0,0,0.85);
     width: 100%;
@@ -31,14 +31,14 @@
     text-align: left;
   }
   
-  .portfolio .slideshow-open .slideshow {
+  .slideshow-open .slideshow {
     opacity: 1;
     visibility: visible;
     -webkit-transition: opacity 0.5s;
     transition: opacity 0.5s;
   }
   
-  .portfolio .slideshow ul {
+  .slideshow ul {
     display: flex;
     width: 100%;
     height: 100%;
@@ -52,17 +52,17 @@
     transition: transform 0.5s;
   }
   
-  .portfolio .slideshow ul.animatable > li {
+  .slideshow ul.animatable > li {
     -webkit-transition: -webkit-transform 0.5s;
     transition: transform 0.5s;
   }
   
-  .portfolio .slideshow-open .slideshow ul {
+  .slideshow-open .slideshow ul {
     -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
   }
   
-  .portfolio .slideshow ul > li {
+  .slideshow ul > li {
     display: flex;
     justify-content: center;
     width: 34.375rem;
@@ -73,11 +73,11 @@
     visibility: hidden;
   }
   
-  .portfolio .slideshow ul > li.show {
+  .slideshow ul > li.show {
     visibility: visible;
   }
   
-  .portfolio .slideshow ul > li:after {
+  .slideshow ul > li:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -91,13 +91,13 @@
     border-radius: 0.625rem;
   }
   
-  .portfolio .slideshow ul > li.current:after {
+  .slideshow ul > li.current:after {
     visibility: hidden;
     opacity: 0;
     -webkit-transition: opacity 0.3s, visibility 0s 0.3s;
     transition: opacity 0.3s, visibility 0s 0.3s;
   }
-.portfolio .slideshow figure {
+.slideshow figure {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -189,15 +189,15 @@
   }
   
   
-  .portfolio .slideshow a {
+  .slideshow a {
     text-decoration: underline;
   }
   
-  .portfolio .slideshow figcaption {
+  .slideshow figcaption {
     margin-bottom: 0.9375rem;
   }
   
-  .portfolio .slideshow figcaption h3 {
+  .slideshow figcaption h3 {
     text-transform: uppercase;
     padding-bottom: 1.25rem;
     margin: 0;
@@ -209,7 +209,7 @@
   
   /* Navigation */
   
-  .portfolio .slideshow nav span {
+  .slideshow nav span {
     position: fixed;
     z-index: 1000;
     text-align: center;
@@ -218,8 +218,8 @@
     color: #fff;
   }
   
-  .portfolio .slideshow nav span.nav-prev,
-  .portfolio .slideshow nav span.nav-next {
+  .slideshow nav span.nav-prev,
+  .slideshow nav span.nav-next {
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -227,17 +227,58 @@
     line-height: 3.625rem;
   }
   
-  .portfolio .slideshow nav span.nav-prev {
+  .slideshow nav span.nav-prev {
     left: 0;
   }
   
-  .portfolio .slideshow nav span.nav-next {
+  .slideshow nav span.nav-next {
     right: 0;
   }
   
-  .portfolio .slideshow nav span.nav-close {
+  .slideshow nav span.nav-close {
     top: 1.875rem;
     right: 1.875rem;
     padding: 0;
   }
   
+@media (min-width:569px) and (max-width: 991px){
+  .slideshow .more-info{
+    grid-template-columns: 1fr 1fr;
+    font-size: 0.9375rem
+  }
+  .slideshow .slide_title h3{
+    font-size: 2.1875rem;
+  }
+  .slideshow .slide_title i{
+    font-size: 1.25rem;
+  }
+  .portfolio .slideshow ul > li.show:not(.current){
+    visibility: hidden;
+  }
+  .portfolio .slideshow figure{
+    justify-content: start;
+    min-height: 55vh;
+  }
+  .portfolio .slideshow figure figcaption ol{
+    padding-left: 0.4375rem;
+  }
+}
+
+@media (max-width: 568px){
+  .slideshow .more-info{
+    grid-template-columns: 1fr;
+  }
+  .portfolio .slideshow ul > li.show:not(.current){
+    visibility: hidden;
+  }
+  .portfolio .slideshow figure{
+    justify-content: start;
+    height: 100vh;
+  }
+  .portfolio .slideshow figure figcaption ol{
+    padding-left: 0.625rem;
+  }
+  .chart-container{
+    height: 30vh;
+  }
+}

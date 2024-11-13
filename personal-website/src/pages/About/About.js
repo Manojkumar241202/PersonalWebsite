@@ -6,10 +6,10 @@ import { handleDownload } from '../../utils/handlers/HandleDownload';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import axios from 'axios';
 import Preloader from '../../utils/preloader/Preloader';
+import nobg_profile from "./nobg_profile-modified.png"
 
 const About = () => {
   const experience_grid= useRef(null);
-  const [experience_grid_columns, set_experience_grid_columns] = useState(0);
 
   const [codechef_rating, set_codechef_rating]= useState("loading");
   const [codeforces_rating, set_codeforces_rating]= useState("loading");
@@ -63,26 +63,9 @@ const About = () => {
   
     fetchRatings();  // Call the async function
   }, []);
-  
-
-  useEffect(() => {
-    if (experience_grid.current) {
-        // Count the number of children elements
-        const count = experience_grid.current.children.length;;
-
-        // Set the number of columns based on the count
-        //currently unabling this functionlaity for space
-        if (count < 4 && false) {
-          set_experience_grid_columns(1);
-        } else {
-          set_experience_grid_columns(2);
-        }
-    }
-  }, []);
 
   const experience_grid_dynamic_columns_style={
-    display: 'grid',
-    gridTemplateColumns: `repeat(${experience_grid_columns}, 1fr)`,
+    display: 'grid'
   };
   return (
     <div className="about-page">
@@ -92,6 +75,7 @@ const About = () => {
       <div className="infos">
         <div className="personal_infos">
           <h2>PERSONAL INFOS</h2>
+          <div className='about_profile' style= {{ backgroundImage: `url(${nobg_profile})`}}></div>
           <ul>
             <li>First name: <span>Manojkumar</span></li>
             <li>Last Name: <span>Palanisamy</span></li>

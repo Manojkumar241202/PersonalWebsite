@@ -201,7 +201,7 @@ ul .responsibilities, .projects, .projects h3{
 }
 
 
-@media (max-width: 37.5rem) {
+@media (max-width: 768px) {
   .infos {
     flex-direction: column; /* Stack the containers vertically on small screens */
   }
@@ -210,7 +210,40 @@ ul .responsibilities, .projects, .projects h3{
     flex: 1 1 100%; /* Each container takes up 100% of the width on small screens */
   }
 
-  .personal_infos ul {
-    grid-template-columns: 1fr; /* Single column layout on small screens */
+  .experience-list{
+    grid-template-columns: 1fr;
   }
+  .experience-list .experience-item:nth-child(odd) {
+    order: 1;
+  }
+
+  .experience-list .experience-item:nth-child(even) {
+    order: 2;
+  }
+  .experience-list .experience-item{
+    min-width: 80vw;
+  }
+  .infos{
+    width: 100vw;
+    margin-left: 0.625rem;
+  }
+  .infos{
+    align-items: center;
+  }
+  .ratings ul{
+    padding-left: 0;
+    width: 80vw;
+  }
+  .about_profile{
+    position: relative;
+    min-height: 12.5rem;
+    width: 12.5rem;
+    height: 12.5rem;
+    border-radius: 50%;
+    margin: 1.25rem auto;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
 }

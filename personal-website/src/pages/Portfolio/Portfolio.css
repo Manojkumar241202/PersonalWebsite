@@ -171,3 +171,215 @@
   width:  21.375rem;
   height: 13.3125rem;
 }
+
+@media (min-width: 569px) and (max-width: 991px){
+  .hover{
+    flex-basis: 40%;
+    margin-top: 0.625rem;
+    box-shadow: 0.0625rem 0.0625rem 0.625rem 0rem rgba(0, 0, 0, 0.5),  /* bottom-right */
+              -0.0625rem -0.0625rem 0.625rem 0rem rgba(0, 0, 0, 0.5), /* top-left */
+              -0.0625rem 0.0625rem 0.625rem 0rem rgba(0, 0, 0, 0.5),  /* bottom-left */
+              0.0625rem -0.0625rem 0.625rem 0rem rgba(0, 0, 0, 0.5); 
+  }
+  .portfolio .portfolio-list li {
+    width: 50%;
+  }
+  .layout > div{
+    height: 11.25rem;
+  }
+
+  .portfolio .portfolio-list li figure div {
+    display: none !important;
+  }
+  .portfolio-single-it  figure div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .portfolio .slideshow {
+    background: #252525;
+  }
+
+  .portfolio .slideshow nav span {
+    padding: 0;
+  }
+
+  .portfolio .slideshow ul > li {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 3.75rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  .portfolio .slideshow ul{
+    padding-left: 0;
+  }
+  .portfolio .slideshow ul > li:after {
+    display: none;
+  }
+
+  .portfolio .slideshow figure {
+    padding: 1.875rem 1.875rem 1.875rem;
+    border-radius: 0;
+    max-width: 45rem;
+    margin: 0 auto;
+  }
+
+  .portfolio .slideshow nav span.nav-prev,
+  .portfolio .slideshow nav span.nav-next {
+    top: 2.1875rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .portfolio .slideshow nav span.nav-next {
+    right: 1.875rem;
+  }
+
+  .portfolio .slideshow nav span.nav-prev {
+    left: 1.875rem;
+  }
+
+  .portfolio .slideshow nav span.nav-prev img,
+  .portfolio .slideshow nav span.nav-next img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .portfolio .slideshow nav span:before {
+    display: none;
+  }
+
+  .portfolio .slideshow nav span.nav-close {
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 2rem;
+    height: 2rem;
+    display: block;
+    line-height: 0;
+  }
+
+  .portfolio .slideshow nav span.nav-close img {
+    width: 2rem;
+    height: 2rem;
+  }
+  .portfolio .layout .overlay{
+    opacity: 0;
+  }
+
+}
+@media (max-width: 568px){
+  .hover{
+    flex-basis: auto;
+    margin-top: 0.625rem;
+    box-shadow: 0.0625rem 0.0625rem 0.625rem 0rem rgba(0, 0, 0, 0.5),  /* bottom-right */
+              -0.0625rem -0.0625rem 0.625rem 0rem rgba(0, 0, 0, 0.5), /* top-left */
+              -0.0625rem 0.0625rem 0.625rem 0rem rgba(0, 0, 0, 0.5),  /* bottom-left */
+              0.0625rem -0.0625rem 0.625rem 0rem rgba(0, 0, 0, 0.5); 
+  }
+  .portfolio .portfolio-list li {
+    width: 50%;
+  }
+
+  .portfolio .portfolio-list li figure div {
+    display: none !important;
+  }
+  .portfolio-single-it  figure div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .portfolio .slideshow {
+    background: #252525;
+  }
+
+  .portfolio .slideshow nav span {
+    padding: 0;
+  }
+
+  .portfolio .slideshow ul > li {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 3.75rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  .portfolio .slideshow ul{
+    padding-left: 0;
+    margin-top:0rem;
+  }
+  .portfolio .slideshow ul > li:after {
+    display: none;
+  }
+
+  .portfolio .slideshow figure {
+    padding: 1.875rem 1.875rem 1.875rem;
+    border-radius: 0;
+    max-width: 45rem;
+    margin: 0 auto;
+  }
+
+  .portfolio .slideshow nav span.nav-prev,
+  .portfolio .slideshow nav span.nav-next {
+    top: 0.8125rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .portfolio .slideshow nav span.nav-next {
+    right: 1.875rem;
+  }
+
+  .portfolio .slideshow nav span.nav-prev {
+    left: 1.875rem;
+  }
+
+  .portfolio .slideshow nav span.nav-prev img,
+  .portfolio .slideshow nav span.nav-next img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .portfolio .slideshow nav span:before {
+    display: none;
+  }
+
+  .portfolio .slideshow nav span.nav-close {
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 2rem;
+    height: 2rem;
+    display: block;
+    line-height: 0;
+    top:0.8125rem;
+  }
+
+  .portfolio .slideshow nav span.nav-close img {
+    width: 2rem;
+    height: 2rem;
+  }
+  .portfolio .layout .overlay{
+    opacity: 0;
+  }
+
+}

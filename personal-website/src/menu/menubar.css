@@ -27,7 +27,7 @@
     display: inline-block;
     font-family: "Poppins";
     position: fixed;
-    top: 1.875rem;
+    top: 0.9375rem;
     width: 3.375rem;
     height: 3.375rem;
     right: 1.875rem;
@@ -86,7 +86,10 @@
   #menuToggle input:checked ~ span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0.125rem, 0.25rem);
   }
-
+  .menu-bar{
+    width:0rem;
+    height: 0rem;
+  }
   #menu {
     position: fixed;
     left: 0;

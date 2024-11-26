@@ -6,4 +6,15 @@ export const handleDownload = (filePath) => {
     link.click();
     document.body.removeChild(link);
   };
+
+export const handleDownloadFromURL = (resumeURL) => {
+    if (resumeURL) {
+      const link = document.createElement('a');
+      link.href = resumeURL;
+      document.body.appendChild(link);
+      link.download = 'Manojkumar_resume.pdf'; // Suggested file name
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
   

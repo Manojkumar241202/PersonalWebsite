@@ -68,6 +68,34 @@ app.get('/api/titles', async (req, res) => {
   }
 });
 
+app.get('/api/resume', async (req, res) => {
+  console.log('Incoming request to /resume');
+
+  try {
+    const ref = rdb.ref('resumeURL'); 
+    console.log('Attempting to retrieve data from node: resumeURL');
+
+    ref.once('value', (snapshot) => {
+      const data = snapshot.val();
+
+      if (data) {
+        console.log('Data retrieved successfully');
+        res.status(200).json(data);
+      } else {
+        console.log('No data found at the specified node.');
+        res.status(404).send('No data found');
+      }
+    }, (errorObject) => {
+      console.error('Error while accessing Firebase Realtime Database:', errorObject);
+      res.status(500).send('Error retrieving data');
+    });
+
+  } catch (error) {
+    console.error('Unexpected error while processing request:', error);
+    res.status(500).send('Unexpected error occurred');
+  }
+});
+
 app.post('/api/save_ratings', async (req, res) => {
   try {
     // Fetch the ratings from the external API
@@ -217,4 +245,8 @@ app.post('/api/save_message', async (req, res) => {
 // Catch-all route to serve the React app for all other routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './build', 'index.html'));
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
 });

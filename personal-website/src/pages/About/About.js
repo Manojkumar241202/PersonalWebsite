@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect} from 'react';
 import SectionTitle from '../../utils/TitleSection';
 import "./About.css";
 import SwipeButton from "../../utils/SwipeButton"
-import { handleDownload } from '../../utils/handlers/HandleDownload';
+import { handleDownloadFromURL } from '../../utils/handlers/HandleDownload';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import axios from 'axios';
 import Preloader from '../../utils/preloader/Preloader';
@@ -16,7 +16,7 @@ const About = () => {
   const [leetcode_rating, set_leetcode_rating]= useState("loading");
   const [atcoder_rating, set_atcoder_rating]= useState("loading");
 
-
+  const [resumeURL, setResumeURL]= useState("");
 
 
   
@@ -64,6 +64,30 @@ const About = () => {
     fetchRatings();  // Call the async function
   }, []);
 
+
+
+
+  useEffect(()=>{
+    const fetchResume = async () => {
+      let response = {};
+      try {
+        if (sessionStorage.getItem(`resumeURL`)){
+          response= JSON.parse(sessionStorage.getItem(`resumeURL`));
+        }
+        else{
+          response = await axios.get('/api/resume');
+          response= response.data;
+          sessionStorage.setItem(`resumeURL`,JSON.stringify(response));
+        }
+        setResumeURL(response);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchResume();
+  }, []);
+
+
   const experience_grid_dynamic_columns_style={
     display: 'grid'
   };
@@ -88,7 +112,7 @@ const About = () => {
           </ul>
           
           <div className="download_button">
-            <SwipeButton icon="fa fa-download" button_text={"DOWNLOAD CV"} onClick= {()=>handleDownload("/Manojkumar_resume.pdf")}></SwipeButton>
+            <SwipeButton icon="fa fa-download" button_text={"DOWNLOAD CV"} onClick= {()=>handleDownloadFromURL(resumeURL)}></SwipeButton>
           </div>
         </div>
         <div className="ratings">

@@ -41,6 +41,22 @@ const Home = () => {
         console.error('Error fetching data:', error);
       }
     };
+    const fetchResume = async () => {
+      let response = {};
+      try {
+        if (sessionStorage.getItem(`resumeURL`)){
+          response= JSON.parse(sessionStorage.getItem(`resumeURL`));
+        }
+        else{
+          response = await axios.get('/api/resume');
+          response= response.data;
+          sessionStorage.setItem(`resumeURL`,JSON.stringify(response));
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchResume();
     fetchData();
     fetchTitles();
   }, []);

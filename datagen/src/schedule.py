@@ -26,7 +26,7 @@ def reload_portfolio():
 scheduler = BackgroundScheduler()
 
 # Schedule update_record to run every day at 00:00
-scheduler.add_job(update_record, 'interval', hours= 6)
+scheduler.add_job(update_record, 'interval', minutes= 1)
 
 # Schedule reload_portfolio to run every 15 minutes
 scheduler.add_job(reload_portfolio, 'interval', minutes=10)

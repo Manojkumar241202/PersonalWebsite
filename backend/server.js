@@ -11,7 +11,7 @@ admin.initializeApp({
     privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'), // Handle newline characters
     clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
   }),
-  databaseURL: "https://personal-website-40d06-default-rtdb.asia-southeast1.firebasedatabase.app/"
+  databaseURL: process.env.FIREBASE_DATABASE_URL
 });
 
 const CODING_PLATFORMS = Object.freeze({
@@ -46,6 +46,34 @@ app.get('/api/titles', async (req, res) => {
   try {
     const ref = rdb.ref('titles'); 
     console.log('Attempting to retrieve data from node: titles');
+
+    ref.once('value', (snapshot) => {
+      const data = snapshot.val();
+
+      if (data) {
+        console.log('Data retrieved successfully');
+        res.status(200).json(data);
+      } else {
+        console.log('No data found at the specified node.');
+        res.status(404).send('No data found');
+      }
+    }, (errorObject) => {
+      console.error('Error while accessing Firebase Realtime Database:', errorObject);
+      res.status(500).send('Error retrieving data');
+    });
+
+  } catch (error) {
+    console.error('Unexpected error while processing request:', error);
+    res.status(500).send('Unexpected error occurred');
+  }
+});
+
+app.get('/api/resume', async (req, res) => {
+  console.log('Incoming request to /resume');
+
+  try {
+    const ref = rdb.ref('resumeURL'); 
+    console.log('Attempting to retrieve data from node: resumeURL');
 
     ref.once('value', (snapshot) => {
       const data = snapshot.val();
@@ -218,7 +246,6 @@ app.post('/api/save_message', async (req, res) => {
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './build', 'index.html'));
 });
-
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

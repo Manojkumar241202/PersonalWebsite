@@ -5,7 +5,7 @@ This is my personal portfolio showcasing my skills, achievements, and coding jou
 ## Features
 
 - **Frontend**: Built using React for an interactive and user-friendly interface.
-- **Backend**: Developed with Node.js to fetch and process rating distributions from popular competitive programming platforms via [Clist](https://clist.by/).
+- **Backend**: Developed with Node.js to fetch and process rating distributions from popular competitive programming platforms via [Clist](https://clist.by/coder/manojkumar2412/).
 - **Data Storage**:
   - **Firebase Firestore**: Used to back up the rating distributions.
   - **Relational Database (RDBMS)**: Maintains the titles of competitive programming platforms.

@@ -282,3 +282,7 @@
     height: 30vh;
   }
 }
+
+.icon i{
+  font-size: 3rem;
+}

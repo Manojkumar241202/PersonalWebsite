@@ -294,24 +294,18 @@ const SlideshowGallery = ({current_index=0}) => {
           </ul>
           <nav>
             <span className="icon nav-prev">
-              <img
-                decoding="async"
-                src="https://tunis-wp.ibthemespro.com/wp-content/plugins/tunis-toolkit/elementor-addons/../assets/img/left-arrow.png"
-                alt="previous"
+              <i
+                className='fa fa-chevron-left fa-2x'
               />
             </span>
             <span className="icon nav-next">
-              <img
-                decoding="async"
-                src="https://tunis-wp.ibthemespro.com/wp-content/plugins/tunis-toolkit/elementor-addons/../assets/img/right-arrow.png"
-                alt="next"
+              <i
+                className='fa fa-chevron-left fa-2x'
               />
             </span>
             <span className="nav-close">
-              <img
-                decoding="async"
-                src="https://tunis-wp.ibthemespro.com/wp-content/plugins/tunis-toolkit/elementor-addons/../assets/img/close-button.png"
-                alt="close"
+              <i style={{ fontSize: "3rem" }}
+                className='fa fa-chevron-left fa-2x'
               />
             </span>
           </nav>

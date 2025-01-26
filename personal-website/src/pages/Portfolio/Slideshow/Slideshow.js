@@ -294,12 +294,12 @@ const SlideshowGallery = ({current_index=0}) => {
           </ul>
           <nav>
             <span className="icon nav-prev">
-              <i
+              <i style={{ fontSize: "3rem" }}
                 className='fa fa-chevron-left fa-2x'
               />
             </span>
             <span className="icon nav-next">
-              <i
+              <i style={{ fontSize: "3rem" }}
                 className='fa fa-chevron-right fa-2x'
               />
             </span>

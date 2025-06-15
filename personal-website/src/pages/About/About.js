@@ -79,7 +79,7 @@ const About = () => {
           <ul>
             <li>First name: <span>Manojkumar</span></li>
             <li>Last Name: <span>Palanisamy</span></li>
-            <li>Age: <span>21</span></li>
+            <li>Age: <span>{Math.floor((new Date() - new Date('2002-12-24')) / (365.25 * 24 * 60 * 60 * 1000))}</span></li>
             <li>Nationality: <span>Indian</span></li>
             <li>Phone: <span>+91 6362500396</span></li>
             <li>Github: <a href="https://github.com/Manojkumar241202"><span>Manojkumar241202</span></a></li>
